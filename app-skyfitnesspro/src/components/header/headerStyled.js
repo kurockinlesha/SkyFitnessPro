@@ -1,14 +1,19 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+export const Head = styled.div`
+padding-left: 140px;
+`;
 export const Header = styled.div`
-display: flex;
-
+  display: flex;
+  padding-right: 140px;
+    justify-content: space-between;
+    padding-top: 30px
 `;
 
 export const HeaderLogo = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 34px;
+  
   background-color: transparent;
 `;
 
@@ -17,33 +22,49 @@ export const HeaderLogoImage = styled.img`
   height: 21px;
 `;
 export const MainLoginButton = styled.button`
-display: inline-flex;
-padding: 5px 16px 7px 16px;
+display: flex;
 justify-content: center;
 align-items: center;
-gap: 8px;
-border-radius: 46px;
-background: #140D40;
-color: #FFF;
-text-align: center;
-font-variant-numeric: lining-nums proportional-nums;
-font-family: StratosSkyeng;
-font-size: 16px;
-font-style: normal;
+line-height: 24px;
 font-weight: 400;
-line-height: 24px; 
-width: 195px;
-&:hover {
-    background: #2D1F79;
+font-size: 16px;
+color: #ffffff;
+background-color: #140d40;
+border-radius: 46px;
+width: 77px;
+height: 36px;
+  &:hover {
+    background: #2d1f79;
   }
 
   &:active {
-    background: #3B29A1;
+    background: #3b29a1;
   }
 `;
 export const TopButton = styled.div`
-display:flex
+  display: flex;
 `;
-export const HeagerTop = styled.div`
+export const HeagerTop = styled.div``;
+export const Sticker = styled.div`
+position: absolute;
+top: 100px;
+left: 1300px;
 `;
+export const TextOneTitle = styled.p`
+line-height: 23px;
+font-size: 20px;
+color: #ffffff;
+opacity: 50%;
+letter-spacing: -0.05px;
 
+`;
+export const TextTwoTitle = styled.p`
+line-height: 55px;
+    font-weight: 400;
+    font-size: 60px;
+    color: #f4f4ff;
+    letter-spacing: -1.17px;
+    margin-top: 17px;
+    width: 820px;
+    height: 110px;
+`;

@@ -1,25 +1,37 @@
-import * as S from './mainStyle';
-import React from 'react';
-import { Header } from '../components/header/header';
-import { Courses } from '../components/courses/courses';
-export function MainPage  ()  {
-    return(
-<>    
-<S.Wrapper className="wrapper">
-    <S.Container className='container'>
-        <S.Main className='main'>
-            <Header></Header>
-            <Courses></Courses>
+import * as S from "./mainStyle";
+import React from "react";
+import { Header } from "../components/header/header";
+import { Courses } from "../components/courses/courses";
+let ButtonTop = document.getElementById("ButtonScrollMain");
+function ScrollTop(){
+  let topPos = ButtonTop.offsetTop(1448);
+  return(
+    topPos
+  )
+};
+export function MainPage() {
+  return (
+    <>
+      <S.Wrapper className="wrapper">
+        <S.Container className="container">
+          <S.Main className="main">
+            <Header/>
+            
+            <Courses/>
+            <S.ButtonScroll>
             <S.ButtonScrollMain
-            //onClick={scroll}
-            type='button'
-            className='ButtonScrollMain'
+            //   onClick={scroll}
+            onclick={ScrollTop()}
+            title="Наверх"
+            id="ButtonScrollMain"
+            className="ButtonScrollMain"
             >
-Наверх
+             Наверх
             </S.ButtonScrollMain>
-        </S.Main>
-    </S.Container>
-</S.Wrapper>
-</>
-);
+            </S.ButtonScroll>
+          </S.Main>
+        </S.Container>
+      </S.Wrapper>
+    </>
+  );
 }
