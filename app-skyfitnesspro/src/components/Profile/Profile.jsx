@@ -1,5 +1,6 @@
 import React from "react";
 import "./Profile.css";
+
 const Profile = () => {
   return (
     <>
@@ -32,14 +33,14 @@ const Profile = () => {
       <div className="course">
         <h1>Мои курсы</h1>
         <div className="course-box">
-          <div className="course-item">
-            <div className="course-text">Йога</div>
+          <div className="course-item course-item-1">
+            <button className="button-link">Перейти</button>
           </div>
-          <div className="course-item">
-            <div className="course-text">Стретчинг</div>
+          <div className="course-item course-item-2">
+            <button className="button-link ">Перейти</button>
           </div>
-          <div className="course-item">
-            <div className="course-text">Бодифлекс</div>
+          <div className="course-item course-item-3">
+            <button className="button-link button-link-3">Перейти</button>
           </div>
         </div>
       </div>

@@ -89,7 +89,66 @@ p {
 .course-item {
     width: 360px;
     height: 480px;
-    border-radius: 30px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* border-radius: 30px;
     background: rgba(205, 205, 205, 0.10);
-    backdrop-filter: blur(14.51865291595459px);
+    backdrop-filter: blur(14.51865291595459px); */
+}
+
+
+
+.course-svg {
+    width: 360px;
+    height: 580px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+
+    /* border-radius: 29.998px;
+    background: #FFF;
+    box-shadow: -10px 10px 15.999px 0px rgba(0, 0, 0, 0.10), 10px -10px 16px 0px rgba(0, 0, 0, 0.10); */
+}
+
+.button-link {
+    width: 136px;
+    height: 43px;
+    position: absolute;
+    left: 40px;
+    bottom: 47px;
+    border-radius: 80px;
+    background: #C7E957;
+    color: #000;
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: StratosSkyeng;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115%;
+    letter-spacing: -0.05px;
+    border: none;
+}
+
+.button-link-3 {
+    bottom: 22px;
+}
+
+.course-item-1 {
+    background-image: url("../../../public/img/icon/icon-class-yoga.png");
+}
+
+.course-item-2 {
+    background-image: url("../../../public/img/icon/icon-class-Stretching.png");
+}
+
+.course-item-3 {
+    background-image: url("../../../public/img/icon/bodyFlex.png");
+    width: 330px;
+    height: 435px;
+    margin-top: 24px;
+    box-shadow: -10px 10px 15.999px 0px rgba(0, 0, 0, 0.10), 10px -10px 16px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 29.998px;
+
 }
