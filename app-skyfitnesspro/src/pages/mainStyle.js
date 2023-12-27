@@ -21,7 +21,7 @@ export const Main = styled.main`
   flex-direction: column;
 `;
 export const ButtonScrollMain = styled.button`
-position: fixed;
+
   display: inline-flex;
   padding: 5px 16px 7px 16px;
   justify-content: center;
@@ -52,4 +52,8 @@ export const ButtonScroll = styled.div`
 display: flex;
 justify-content: center;
 padding-top: 34px;
+position: fixed;
+    right: 10px;
+    top: 10px;
+    background: #fee;
 `;
