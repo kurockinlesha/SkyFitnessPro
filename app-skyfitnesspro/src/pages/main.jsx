@@ -3,7 +3,9 @@ import React from "react";
 import { Header } from "../components/header/header";
 import { Courses } from "../components/courses/courses";
 import { Link, animateScroll as scroll } from 'react-scroll';
-
+export const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+};
 export function MainPage() {
   return (
     <>
@@ -16,7 +18,7 @@ export function MainPage() {
             <S.ButtonScroll>
               <S.ButtonScrollMain
                 //   onClick={scroll}
-                onClick={this.scrollToTop}
+                onClick={scrollToTop}
                 title="Наверх"
                 id="ButtonScrollMain"
                 className="ButtonScrollMain"

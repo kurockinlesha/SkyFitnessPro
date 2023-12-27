@@ -53,7 +53,7 @@ display: flex;
 justify-content: center;
 padding-top: 34px;
 position: fixed;
-    right: 10px;
-    top: 10px;
-    background: #fee;
+right: 50%;
+top: 90%;
+    
 `;
