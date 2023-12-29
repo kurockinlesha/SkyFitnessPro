@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   max-height: 100%;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #FAFAFA;
   padding-left: calc(50% - 820px);
   padding-right: calc(50% - 820px);
 `;
