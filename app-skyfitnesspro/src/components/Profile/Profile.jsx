@@ -3,7 +3,7 @@ import "./Profile.css";
 
 const Profile = () => {
   return (
-    <>
+    <div className="container__profile">
       <div className="header">
         <div className="header-logo">
           <img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
@@ -21,13 +21,15 @@ const Profile = () => {
       </div>
       <div className="profile">
         <div className="heading">
-          <h1>Мой профиль</h1>
-          <p>Логин: sergey.petrov96</p>
-          <p>Пароль: 4fkhdj880d</p>
+          <h1 className="profile-heading">Мой профиль</h1>
+          <p className="profile-text">Логин: sergey.petrov96</p>
+          <p className="profile-text">Пароль: 4fkhdj880d</p>
         </div>
         <div className="profile-button">
           <button className="button">Редактировать логин</button>
-          <button className="button">Редактировать пароль</button>
+          <button className="button">
+            Редактировать пароль
+          </button>
         </div>
       </div>
       <div className="course">
@@ -44,7 +46,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
