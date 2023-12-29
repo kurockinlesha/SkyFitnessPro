@@ -6,11 +6,8 @@ import { GlobalStyled } from "./GlobalAppStyle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <>
     <GlobalStyled />
     <App />
-  </React.StrictMode>
+  </>
 );
-
-
-

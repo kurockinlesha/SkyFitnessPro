@@ -1,19 +1,16 @@
-
-import "./App.css";
 // import { Password } from "./components/Password/Password";
 // import { Login } from "./components/Login/Login";
-
+import * as S from "./AppStyle";
 import { Profile } from "./components/Profile/Profile";
 
 function App() {
-
   return (
-    <div className="Wrapper">
-      <div className="Container">
+    <S.Wrapper>
+      <S.Container>
         <Profile />
         {/* <Password /> */}
-      </div>
-    </div>
+      </S.Container>
+    </S.Wrapper>
   );
 }
 
