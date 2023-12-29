@@ -1,7 +1,7 @@
 
 import "./App.css";
-import { Password } from "./components/Password/Password";
-import { Login } from "./components/Login/Login";
+// import { Password } from "./components/Password/Password";
+// import { Login } from "./components/Login/Login";
 
 import { Profile } from "./components/Profile/Profile";
 
@@ -11,7 +11,7 @@ function App() {
     <div className="Wrapper">
       <div className="Container">
         <Profile />
-        {/* <Login /> */}
+        {/* <Password /> */}
       </div>
     </div>
   );

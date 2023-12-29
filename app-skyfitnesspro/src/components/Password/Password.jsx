@@ -1,37 +1,37 @@
-import "./PasswordStyle.css";
+import React from "react";
+
+import * as S from "./LoginPasswordStyle";
 const Password = () => {
   return (
-    <div className="wrapper">
-      <div className="container-signup">
-        <div className="modal__block">
-          <form className="modal__form-login">
-            <a href="/">
-              <div className="modal__logo">
-                <img src="./img/logo-SkyFitnessPro.svg" alt="logo" />
-              </div>
-            </a>
-            <div className="new-password">
-              <p className="new-password-text">Новый пароль:</p>
-            </div>
-            <input
-              className="modal__input password-first"
+    <S.Wrapper>
+      <S.ContainerSignup>
+        <S.ModalBlock>
+          <S.ModalFormLogin>
+            <S.ModalLogo>
+              <S.ModalLogoImg src="./img/logo-SkyFitnessPro.svg" alt="logo" />
+            </S.ModalLogo>
+            <S.NewLoginPassword>
+              <S.NewLoginPasswordText>Новый пароль:</S.NewLoginPasswordText>
+            </S.NewLoginPassword>
+            <S.ModalInput
               type="password"
               name="password"
               placeholder="Пароль"
             />
-            <input
-              className="modal__input password-double"
+            <S.ModalInput
               type="password"
               name="password"
               placeholder="Повторите пароль"
             />
-            <button className="modal__btn-signup-ent">
-              <a href="/">Сохранить</a>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+            <S.MdalBtnSignupEnt>
+              <S.MdalBtnSignupEntLink href="/">
+                Сохранить
+              </S.MdalBtnSignupEntLink>
+            </S.MdalBtnSignupEnt>
+          </S.ModalFormLogin>
+        </S.ModalBlock>
+      </S.ContainerSignup>
+    </S.Wrapper>
   );
 };
 
