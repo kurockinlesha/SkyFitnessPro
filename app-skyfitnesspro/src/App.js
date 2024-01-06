@@ -4,7 +4,7 @@ import * as S from "./AppStyle";
 import { Profile } from "./components/Profile/Profile";
 import { GlobalStyled } from "./GlobalAppStyle";
 import { WorkOutComponent } from "./components/work-out-component/work-out-component";
-import { MainPage } from "./pages/main";
+import { MainPage } from "./pages/main/MainPage";
 
 function App() {
   return (
