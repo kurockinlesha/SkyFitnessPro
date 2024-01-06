@@ -5,6 +5,7 @@ import { Profile } from "./components/Profile/Profile";
 import { GlobalStyled } from "./GlobalAppStyle";
 import { WorkOutComponent } from "./components/work-out-component/work-out-component";
 import { MainPage } from "./pages/main/MainPage";
+import { Course } from "./components/course/Course";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <S.Container>
         <MainPage />
         <Profile />
+        <Course />
         {/* <Password /> */}
       </S.Container>
       <GlobalStyled />
