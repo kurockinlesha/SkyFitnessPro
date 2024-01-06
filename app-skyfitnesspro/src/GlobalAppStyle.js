@@ -46,7 +46,8 @@ body {
   height: 100%;
   font-family: "StratosSkyeng", sans-serif;
   background: #FAFAFA;
-
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
 }
 
 

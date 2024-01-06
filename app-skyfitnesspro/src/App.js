@@ -2,18 +2,21 @@
 // import { Login } from "./components/Login/Login";
 import * as S from "./AppStyle";
 import { Profile } from "./components/Profile/Profile";
-import { GlobalStyles } from "./global.styled";
+import { GlobalStyled } from "./GlobalAppStyle";
 import { WorkOutComponent } from "./components/work-out-component/work-out-component";
+import { MainPage } from "./pages/main";
 
 function App() {
   return (
     <S.Wrapper>
       <S.Container>
+        <MainPage />
         <Profile />
         {/* <Password /> */}
       </S.Container>
-      <GlobalStyles />
-     <WorkOutComponent />
+      <GlobalStyled />
+      {/* <GlobalStyles /> */}
+      <WorkOutComponent />
     </S.Wrapper>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./headerStyled";
 import sticker from "../../img/sticker.svg";
 import logo from '../../img/logo.svg'
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 export function Header() {
   function Logout() {
     <use xlinkHref="#" id="click_Logout"></use>;
@@ -11,11 +11,11 @@ export function Header() {
     <S.Head>
     <S.Header>
       <S.HeagerTop>
-        <NavLink to="/">
+        {/* <NavLink to="/"> */}
           <S.HeaderLogo>
             <img src={logo} alt="logo" />
           </S.HeaderLogo>
-        </NavLink>
+        {/* </NavLink> */}
       </S.HeagerTop>
       <S.Sticker className="sticker">
         <img src={sticker} alt="sticker"></img>
