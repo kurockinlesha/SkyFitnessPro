@@ -1,8 +1,12 @@
-import React from "react";
+// import React, { useState } from "react";
 import * as S from "./ProfileStyle";
 const Profile = () => {
   // const S.ContainerProfile = S.d.div``;
   // const S.ContainerProfile = S.d.div``;
+  // const [showLogin, setShowLogin] = useState(false)
+  // const handleShowLogin =() =>{
+  //   setShowLogin(!showLogin)
+  // }
   return (
     <S.ContainerProfile>
       <S.Header>
