@@ -111,6 +111,7 @@ export const TypeElement = styled.li`
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
+  list-style: disc;
 `;
 
 export const Description = styled.div`
