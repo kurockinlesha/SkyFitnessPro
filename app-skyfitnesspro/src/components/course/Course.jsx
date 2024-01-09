@@ -1,5 +1,5 @@
 import React from "react";
-import "./course.css";
+import "./courseStyle.css";
 export function Course() {
   return (
     <div class="wrapper">

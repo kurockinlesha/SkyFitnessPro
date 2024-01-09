@@ -5,32 +5,39 @@ import stretch from "../../img//stretch.png";
 import danceFitness from "../../img/danceFitness.svg";
 import stepAerobics from "../../img/stepAerobics.svg";
 import bodyFlex from "../../img/bodyFlex.png";
+import { NavLink } from "react-router-dom";
 export function Courses() {
    
     return(
        
          <S.ProductBox className="product_box center">
          <S.ProductContent className="product-content">
-
+         <NavLink to="/Course">
             <S.Product className="product">
                 <img src={yoga} alt="product" class="card__img_yoga"/> 
+                
             </S.Product>
-
+            </NavLink>
+            <NavLink to="/Course">
             <S.Product className="product">
                 <img src={stretch} alt="product" class="card__img_stretch"/>
             </S.Product>
-
+            </NavLink>
+            <NavLink to="/Course">
             <S.Product className="product">
                 <img src={danceFitness} alt="product" class="card__img_danceFitness"/> 
             </S.Product>
-
+            </NavLink>
+            <NavLink to="/Course">
             <S.Product className="product">
                 <img  src={stepAerobics} alt="product" class="card__img_stepAerobics"/>              
             </S.Product>
-
+            </NavLink>
+            <NavLink to="/Course">
             <S.Product className="product">
                 <img src={bodyFlex} alt="product" class="product_img"/> 
             </S.Product>
+            </NavLink>
         </S.ProductContent>
         </S.ProductBox>
 

@@ -7,13 +7,13 @@ export const Auth = () => {
 		<S.Wrapper>
 			<S.LogoHeader>
 				<NavLink to='/'>
-					<S.Logo src='/logo.png'></S.Logo>
+					<S.Logo src="/img/logo-SkyFitnessPro.svg" alt="logo" />
 				</NavLink>
 			</S.LogoHeader>
 
 			<S.Container>
 				<S.LogInForm>
-					<S.Logo src='/logo2.png'></S.Logo>
+					<S.Logo src="/img/logo-SkyFitnessPro.svg" alt="logo" />
 					<S.EmailInput type='email' placeholder='Логин' />
 
 					<S.PasswordInput type='password' placeholder='Пароль' />

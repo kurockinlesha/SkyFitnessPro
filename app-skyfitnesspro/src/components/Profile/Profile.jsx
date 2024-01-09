@@ -1,5 +1,6 @@
 // import React, { useState } from "react";
 import * as S from "./ProfileStyle";
+import { NavLink } from "react-router-dom";
 const Profile = () => {
   // const S.ContainerProfile = S.d.div``;
   // const S.ContainerProfile = S.d.div``;
@@ -11,7 +12,9 @@ const Profile = () => {
     <S.ContainerProfile>
       <S.Header>
         <S.HeaderLogo>
+        <NavLink to='/'>
           <S.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
+          </NavLink>
         </S.HeaderLogo>
         <S.HeaderProfile>
           <S.HeaderSvg>
@@ -39,13 +42,19 @@ const Profile = () => {
         <S.ProfileHeading>Мои курсы</S.ProfileHeading>
         <S.CourseBox>
           <S.CourseItem1>
+            <NavLink to='/Course'>
             <S.ButtonLink>Перейти</S.ButtonLink>
+            </NavLink>
           </S.CourseItem1>
           <S.CourseItem2>
+          <NavLink to='/Course'>
             <S.ButtonLink>Перейти</S.ButtonLink>
+            </NavLink>
           </S.CourseItem2>
           <S.CourseItem3>
+            <NavLink to='/Course'>
             <S.ButtonLink3>Перейти</S.ButtonLink3>
+            </NavLink>
           </S.CourseItem3>
         </S.CourseBox>
       </S.Course>
