@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main/MainPage";
 import { Profile } from "./components/Profile/Profile";
-import { Course } from "./components/Profile/ProfileStyle";
+import { Course } from "./components/course/Course";
 import { Password } from "./components/Password/Password";
 import { WorkoutVideoPage } from "./components/workout-video-page/workout-video-page";
 import { Auth } from "./pages/auth/Auth";

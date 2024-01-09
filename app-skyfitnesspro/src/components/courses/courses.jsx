@@ -6,6 +6,7 @@ import danceFitness from "../../img/danceFitness.svg";
 import stepAerobics from "../../img/stepAerobics.svg";
 import bodyFlex from "../../img/bodyFlex.png";
 import { NavLink } from "react-router-dom";
+
 export function Courses() {
    
     return(

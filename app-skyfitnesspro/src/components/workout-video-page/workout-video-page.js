@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import * as S from "./workout-video-page.styled";
 
 export const WorkoutVideoPage = ({
@@ -19,10 +20,12 @@ export const WorkoutVideoPage = ({
   }
 
   return (
-    <div className="Container">
+    <>
+       <NavLink to="/">
       <S.LogoSkypro>
         <S.LogoImg src="./img/logoSkypro.png" alt="logo" />
       </S.LogoSkypro>
+      </NavLink>
       <S.SelectedCourseTitle>Йога</S.SelectedCourseTitle>
       <S.SelectedTrainingTitle>
         Красота и здоровье / Йога на каждый день / 2 день
@@ -102,7 +105,7 @@ export const WorkoutVideoPage = ({
           </S.TrainingProgressBox>
         </S.TrainingProgress>
       </S.Exercises>
-    </div>
+    </>
   );
 };
 
