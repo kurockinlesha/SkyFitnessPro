@@ -6,8 +6,8 @@ const Login = () => {
   // const S.Wrapper = S.d.div``
 
   return (
-    <S.Wrapper>
-      <S.ContainerSignup>
+    // <S.Wrapper>
+    //   <S.ContainerSignup>
         <S.ModalBlock>
           <S.ModalFormLoginWigth>
             <S.ModalLogo>
@@ -30,8 +30,8 @@ const Login = () => {
             </S.MdalBtnSignupEnt>
           </S.ModalFormLoginWigth>
         </S.ModalBlock>
-      </S.ContainerSignup>
-    </S.Wrapper>
+    //   </S.ContainerSignup>
+    // </S.Wrapper>
   );
 };
 

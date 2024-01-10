@@ -3,9 +3,12 @@ import { MainPage } from "./pages/main/MainPage";
 import { Profile } from "./components/Profile/Profile";
 import { Course } from "./components/course/Course";
 import { Password } from "./components/Password/Password";
-import { WorkoutVideoPage } from "./components/workout-video-page/workout-video-page";
+import { WorkOutComponent } from "./components/work-out-component/work-out-component";
 import { Auth } from "./pages/auth/Auth";
 import { Reg } from "./pages/reg/Reg"
+import { Login } from "./components/Login/Login";
+import { ChoiceWorkout } from "./components/choice-workout/ChoiceWorkout";
+
 export function AppRoutes() {
   return (
     <Routes>
@@ -16,12 +19,13 @@ export function AppRoutes() {
       
       <Route path="/Course" element={<Course/>}/>
       <Route path="/Password" element={<Password/>}/>
-      <Route path="/WorkoutVideoPage" element={<WorkoutVideoPage/>}/>
+      <Route path="/Login" element={<Login/>}/>
+
+      <Route path="/WorkoutVideoPage" element={<WorkOutComponent/>}/>
         {/* <Course /> */}
         {/* <Password /> */}
         {/* <ChoiceWorkout/> */}
     </Routes>
-    
   );
 }
 export default AppRoutes;

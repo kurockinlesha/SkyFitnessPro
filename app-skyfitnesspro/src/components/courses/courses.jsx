@@ -11,32 +11,32 @@ export function Courses() {
    
     return(
        
-         <S.ProductBox className="product_box center">
-         <S.ProductContent className="product-content">
+         <S.ProductBox>
+         <S.ProductContent >
          <NavLink to="/Course">
-            <S.Product className="product">
-                <img src={yoga} alt="product" class="card__img_yoga"/> 
+            <S.Product >
+                <img src={yoga} alt="product"/> 
                 
             </S.Product>
             </NavLink>
             <NavLink to="/Course">
-            <S.Product className="product">
-                <img src={stretch} alt="product" class="card__img_stretch"/>
+            <S.Product >
+                <img src={stretch} alt="product" />
             </S.Product>
             </NavLink>
             <NavLink to="/Course">
-            <S.Product className="product">
-                <img src={danceFitness} alt="product" class="card__img_danceFitness"/> 
+            <S.Product >
+                <img src={danceFitness} alt="product" /> 
             </S.Product>
             </NavLink>
             <NavLink to="/Course">
-            <S.Product className="product">
-                <img  src={stepAerobics} alt="product" class="card__img_stepAerobics"/>              
+            <S.Product>
+                <img  src={stepAerobics} alt="product" />              
             </S.Product>
             </NavLink>
             <NavLink to="/Course">
-            <S.Product className="product">
-                <img src={bodyFlex} alt="product" class="product_img"/> 
+            <S.Product >
+                <img src={bodyFlex} alt="product" /> 
             </S.Product>
             </NavLink>
         </S.ProductContent>

@@ -1,27 +1,22 @@
 import styled from "styled-components";
-export const Wrapper = styled.div`
-scroll-behavior: smooth;
-  width: auto;
-  height: 1448px;
-  position: relative;
-  background-color: #271a58;
-`;
-export const Container = styled.div`
-  max-width: 1920px;
-  height: 100vh;
-  margin: 0 auto;
-  position: relative;
-  background-color: #271a58;
-`;
+
+// export const Wrapper = styled.body`
+//   scroll-behavior: smooth;
+//   width: auto;
+//   background-color: #271a58;
+// `;
+// export const Container = styled.div`
+
+//   height: 100vh;
+//   margin: 0 auto;
+// `;
 
 export const Main = styled.main`
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 `;
 export const ButtonScrollMain = styled.button`
-
   display: inline-flex;
   padding: 5px 16px 7px 16px;
   justify-content: center;
@@ -46,14 +41,10 @@ export const ButtonScrollMain = styled.button`
     background: #ebffab;
   }
 `;
-export const ImgBottun = styled.img`
-`;
+
 export const ButtonScroll = styled.div`
-display: flex;
-justify-content: center;
-padding-top: 34px;
-position: fixed;
-right: 50%;
-top: 90%;
-    
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding-top: 34px;
 `;

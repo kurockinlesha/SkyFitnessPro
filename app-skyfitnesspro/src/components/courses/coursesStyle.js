@@ -1,22 +1,20 @@
 import styled from "styled-components";
 export const ProductBox = styled.div`
-margin-top: 52px;
-    display: flex;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 37px;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+  margin-top: 44px;
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 37px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 `;
 export const ProductContent = styled.div`
-margin-top: 52px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 `;
-
 
 export const Product = styled.div`
   

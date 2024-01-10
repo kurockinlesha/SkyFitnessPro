@@ -1,101 +1,102 @@
 import React from "react";
 import "./choiceWorkoutStyle.css";
+import * as S from "./ChoiceWorkout.styled";
+
 const ChoiceWorkout = () => {
   return (
-    <div className="Wrapper__choice-workout">
-      <div className="Conteiner__choice-workout">
-        <div className="choice-workout">
-          <h1 className="choice-workout-heading">Выберите тренировку</h1>
-          <div className="choice-workout-box">
-            <div className="choice-workout-item ">
-              <label htmlFor="check">
-                <input
-                  className="real-checkbox"
-                  type="checkbox"
-                  name="choice-workout"
-                  id="check"
-                />
-                <span className="custom-checkbox"></span>
-                <div className="item-text">
-                  <div className="item-text-title">Утренняя практика</div>
-                  <div className="item-text-day">
-                    Йога на каждый день / 1 день
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="choice-workout-item">
-              <label htmlFor="check-1">
-                <input
-                  className="real-checkbox"
-                  type="checkbox"
-                  name="choice-workout"
-                  id="check-1"
-                />
-                <span className="custom-checkbox"></span>
-                <div className="item-text">
-                  <div className="item-text-title">Красота и здоровье</div>
-                  <div className="item-text-day">
-                    Йога на каждый день / 2 день
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="choice-workout-item">
-              <label htmlFor="check-2">
-                <input
-                  className="real-checkbox"
-                  type="checkbox"
-                  name="choice-workout"
-                  id="check-2"
-                />
-                <span className="custom-checkbox"></span>
-                <div className="item-text">
-                  <div className="item-text-title">Асаны стоя</div>
-                  <div className="item-text-day">
-                    Йога на каждый день / 3 день
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="choice-workout-item">
-              <label htmlFor="check-3">
-                <input
-                  className="real-checkbox"
-                  type="checkbox"
-                  name="choice-workout"
-                  id="check-3"
-                />
-                <span className="custom-checkbox"></span>
-                <div className="item-text item-text-block">
-                  <div className="item-text-title item-text-title-block">Растягиваем мышцы бедра</div>
-                  <div className="item-text-day">
-                    Йога на каждый день / 4 день
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="choice-workout-item">
-              <label htmlFor="check-4">
-                <input
-                  className="real-checkbox"
-                  type="checkbox"
-                  name="choice-workout"
-                  id="check-4"
-                />
-                <span className="custom-checkbox"></span>
-                <div className="item-text">
-                  <div className="item-text-title">Гибкость спины</div>
-                  <div className="item-text-day">
-                    Йога на каждый день / 5 день
-                  </div>
-                </div>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <S.ChoiceWorkoutContainer>
+      <S.ChoiceWorkoutHeading>Выберите тренировку</S.ChoiceWorkoutHeading>
+      <S.ChoiceWorkoutBox>
+        <S.ChoiceWorkoutItem>
+          <label htmlFor="check">
+            <S.RealCheckbox
+              type="checkbox"
+              name="choice-workout"
+              id="check"
+            />
+            <S.CustomCheckbox></S.CustomCheckbox>
+            <S.ItemText>
+              <S.ItemTextTitle>Утренняя практика</S.ItemTextTitle>
+              <S.ItemTextDay>Йога на каждый день / 1 день</S.ItemTextDay>
+            </S.ItemText>
+          </label>
+        </S.ChoiceWorkoutItem>
+        <S.ChoiceWorkoutItem>
+          <label htmlFor="check-1">
+            <S.RealCheckbox
+              type="checkbox"
+              name="choice-workout"
+              id="check-1"
+            />
+            <S.CustomCheckbox></S.CustomCheckbox>
+            <S.ItemText>
+              <S.ItemTextTitle>Красота и здоровье</S.ItemTextTitle>
+              <S.ItemTextDay>Йога на каждый день / 2 день</S.ItemTextDay>
+            </S.ItemText>
+          </label>
+        </S.ChoiceWorkoutItem>
+        <S.ChoiceWorkoutItem>
+          <label htmlFor="check-2">
+            <S.RealCheckbox
+              type="checkbox"
+              name="choice-workout"
+              id="check-2"
+            />
+            <S.CustomCheckbox></S.CustomCheckbox>
+            <S.ItemText>
+              <S.ItemTextTitle>Асаны стоя</S.ItemTextTitle>
+              <S.ItemTextDay>Йога на каждый день / 3 день</S.ItemTextDay>
+            </S.ItemText>
+          </label>
+        </S.ChoiceWorkoutItem>
+        <S.ChoiceWorkoutItem>
+          <label htmlFor="check-3">
+            <S.RealCheckbox
+              type="checkbox"
+              name="choice-workout"
+              id="check-3"
+            />
+            <S.CustomCheckbox></S.CustomCheckbox>
+            <S.ItemText>
+              <S.ItemTextTitle>
+                Растягиваем <br/> мышцы бедра
+              </S.ItemTextTitle>
+              <S.ItemTextDay>Йога на каждый день / 4 день</S.ItemTextDay>
+            </S.ItemText>
+          </label>
+        </S.ChoiceWorkoutItem>
+        <S.ChoiceWorkoutItem>
+          <label htmlFor="check-4">
+            <S.RealCheckbox
+              type="checkbox"
+              name="choice-workout"
+              id="check-4"
+            />
+           <S.CustomCheckbox></S.CustomCheckbox>
+            <S.ItemText>
+              <S.ItemTextTitle>Гибкость спины</S.ItemTextTitle>
+              <S.ItemTextDay>Йога на каждый день / 5 день</S.ItemTextDay>
+            </S.ItemText>
+          </label>
+        </S.ChoiceWorkoutItem>
+        <S.ChoiceWorkoutItem>
+          <label htmlFor="check-5">
+            <S.RealCheckbox
+              type="checkbox"
+              name="choice-workout"
+              id="check-5"
+            />
+           <S.CustomCheckbox></S.CustomCheckbox>
+            <S.ItemText>
+              <S.ItemTextTitle>Гибкость спины</S.ItemTextTitle>
+              <S.ItemTextDay>Йога на каждый день / 5 день</S.ItemTextDay>
+            </S.ItemText>
+          </label>
+        </S.ChoiceWorkoutItem>
+     
+      </S.ChoiceWorkoutBox>
+    </S.ChoiceWorkoutContainer>
+   
   );
 };
 

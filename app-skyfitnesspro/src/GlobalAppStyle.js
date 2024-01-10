@@ -15,12 +15,6 @@ export const GlobalStyled = createGlobalStyle`
   box-sizing: border-box;
 }
 
-a,
-a:visited {
-  text-decoration: none;
-  font-family: "StratosSkyeng", sans-serif;
-  cursor: pointer;
-}
 
 /* button,
 ._btn {
@@ -34,21 +28,40 @@ ul li {
 @font-face {
   font-family: "StratosSkyeng";
   src: local("StratosSkyeng"), local("StratosSkyeng"),
-    url("./fonts/StratosSkyeng.woff2")format("woff2"),
-    url("./fonts/StratosSkyeng.woff") format("woff");
+    url("./fonts/StratosLCWeb-Regular.woff2")format("woff2"),
+    url("./fonts/StratosLCWeb-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
+
+a,
+a:visited {
+  text-decoration: none;
+  font-family: "StratosSkyeng", sans-serif;
+  cursor: pointer;
+}
+
 
 html,
 body {
   width: 100%;
   height: 100%;
   font-family: "StratosSkyeng", sans-serif;
-  background: #FAFAFA;
-  padding-left: calc(50% - 580px);
-  padding-right: calc(50% - 580px);
+  // background-color: #FAFAFA;
+  // padding-left: calc(50% - 580px);
+  // padding-right: calc(50% - 580px);
 }
+
+::-webkit-scrollbar { 
+  width: 5px; /* ширина для вертикального скролла */ 
+  height: 0px; /* высота для горизонтального скролла */ 
+  background-color: rgba(0, 0, 0, 0.05); } /* ползунок скроллбара */ 
+  
+::-webkit-scrollbar-thumb { 
+    background-color: rgba(0, 0, 0, 0.15); 
+    border-radius: 9em; 
+    // box-shadow: inset 1px 1px 10px #ffffff; 
+  }
 
 
 // ._btn-icon:hover svg {

@@ -3,8 +3,8 @@ import React from "react";
 import * as S from "./LoginPasswordStyle";
 const Password = () => {
   return (
-    <S.Wrapper>
-      <S.ContainerSignup>
+    // <S.Wrapper>
+      // <S.ContainerSignup>
         <S.ModalBlock>
           <S.ModalFormLogin>
             <S.ModalLogo>
@@ -30,8 +30,8 @@ const Password = () => {
             </S.MdalBtnSignupEnt>
           </S.ModalFormLogin>
         </S.ModalBlock>
-      </S.ContainerSignup>
-    </S.Wrapper>
+      // </S.ContainerSignup>
+    // </S.Wrapper>
   );
 };
 

@@ -67,6 +67,7 @@ export const SelectedTrainingList = styled.ul`
 `;
 
 export const SelectedTrainingListElement = styled.li`
+  list-style: disc;
   font-variant-numeric: lining-nums proportional-nums;
   font-size: 24px;
   font-style: normal;
@@ -150,11 +151,11 @@ export const TrainingProgressInputPercentage = styled.p`
   position: absolute;
   top: 1px;
   left: ${(props) =>
-    props.value <= "30%"
+    props.value <= 30 && props.value !== 0
       ? "0"
-      : ((props.value > "50%" || props.value ===  "0%")
+      : props.value > 50 || props.value === 0
       ? "112px"
-      : "50px")};
+      : "50px"};
   color: #fff;
   font-size: 24px;
   font-style: normal;

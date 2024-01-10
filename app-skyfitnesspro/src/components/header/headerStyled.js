@@ -1,12 +1,14 @@
 import styled from "styled-components";
 export const Head = styled.div`
-padding-left: 140px;
+// padding-left: 140px;
+ position: relative;
 `;
 export const Header = styled.div`
   display: flex;
-  padding-right: 140px;
+  // padding-right: 140px;
     justify-content: space-between;
     padding-top: 30px
+   
 `;
 
 export const HeaderLogo = styled.div`
@@ -44,11 +46,14 @@ height: 36px;
 export const TopButton = styled.div`
   display: flex;
 `;
-export const HeagerTop = styled.div``;
+export const HeagerTop = styled.div`
+margin-bottom: 35px;
+`;
+
 export const Sticker = styled.div`
 position: absolute;
 top: 100px;
-left: 1300px;
+left: 1004px;
 `;
 export const TextOneTitle = styled.p`
 line-height: 23px;
