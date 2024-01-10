@@ -5,11 +5,11 @@ import { NavLink } from 'react-router-dom';
 export const Auth = () => {
 	return (
 		<S.Wrapper>
-			<S.LogoHeader>
+			{/* <S.LogoHeader>
 				<NavLink to='/'>
 					<S.Logo src="/img/logo-SkyFitnessPro.svg" alt="logo" />
 				</NavLink>
-			</S.LogoHeader>
+			</S.LogoHeader> */}
 
 			<S.Container>
 				<S.LogInForm>

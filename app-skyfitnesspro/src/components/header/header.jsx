@@ -18,9 +18,9 @@ export function Header() {
           </S.HeaderLogo>
         </NavLink>
       </S.HeagerTop>
-      <S.Sticker className="sticker">
+      {/* <S.Sticker >
         <img src={sticker} alt="sticker"></img>
-      </S.Sticker>
+      </S.Sticker> */}
       <S.TopButton>
       <NavLink to='/auth'>
         <S.MainLoginButton onClick={Logout}>Войти</S.MainLoginButton>
@@ -29,7 +29,7 @@ export function Header() {
     </S.Header>
     <S.TextOneTitle>Онлайн-тренировки для занятий дома</S.TextOneTitle>
     <S.TextTwoTitle>Начните заниматься спортом и улучшите качество жизни</S.TextTwoTitle>
-    <S.Sticker className="sticker">
+    <S.Sticker >
     <img src={sticker} alt="sticker"></img>
   </S.Sticker>
   

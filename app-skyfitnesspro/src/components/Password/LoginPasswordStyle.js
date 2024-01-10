@@ -1,17 +1,17 @@
 import { styled } from "styled-components";
 
-export const Wrapper = styled.div`
-  width: 100%;
-  min-height: 100%;
-  overflow: hidden;
-`;
-export const ContainerSignup = styled.div`
-  max-width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  position: relative;
-  background-color: #ffffff;
-`;
+// export const Wrapper = styled.div`
+//   width: 100%;
+//   min-height: 100%;
+//   overflow: hidden;
+// `;
+// export const ContainerSignup = styled.div`
+//   max-width: 100%;
+//   height: 100vh;
+//   margin: 0 auto;
+//   position: relative;
+//   background-color: #ffffff;
+// `;
 export const ModalBlock = styled.div`
   position: fixed;
   z-index: 2;
@@ -27,7 +27,7 @@ export const ModalFormLogin = styled.form`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid black;
+  // border: 1px solid black;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -59,8 +59,8 @@ export const NewLoginPassword = styled.div`
 `;
 export const NewLoginPasswordText = styled.p`
   color: #000000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
+  // font-variant-numeric: lining-nums proportional-nums;
+  // font-family: StratosSkyeng;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;

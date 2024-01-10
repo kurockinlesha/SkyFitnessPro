@@ -8,10 +8,10 @@ export const scrollToTop = () => {
 };
 export function MainPage() {
   return (
-    <>
-      <S.Wrapper className="wrapper">
-        <S.Container className="container">
-          <S.Main className="main">
+    
+    // <S.Wrapper >
+    //   <S.Container>
+          <S.Main>
             <Header />
 
             <Courses />
@@ -21,14 +21,13 @@ export function MainPage() {
                 onClick={scrollToTop}
                 title="Наверх"
                 id="ButtonScrollMain"
-                className="ButtonScrollMain"
               >
-                Наверх
+                Наверх ↑
               </S.ButtonScrollMain>
             </S.ButtonScroll>
           </S.Main>
-        </S.Container>
-      </S.Wrapper>
-    </>
+      //     </S.Container>
+      //  </S.Wrapper> 
+ 
   );
 }

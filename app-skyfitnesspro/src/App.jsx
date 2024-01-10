@@ -9,12 +9,18 @@ import { GlobalStyled } from "./GlobalAppStyle";
 // import { Course } from "./components/course/Course";
 //import { ChoiceWorkout } from "./components/choice-workout/ChoiceWorkout";
 import AppRoutes from "./routers";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
   return (
-    <S.Wrapper>
+    <S.Wrapper
+      style={{
+        backgroundColor: location.pathname === "/" ? "#271a58" : "#FAFAFA",
+      }}
+    >
       <S.Container>
-        <AppRoutes/>
+        <AppRoutes />
         {/* <MainPage /> */}
         {/* <Profile /> */}
         {/* <Course /> */}

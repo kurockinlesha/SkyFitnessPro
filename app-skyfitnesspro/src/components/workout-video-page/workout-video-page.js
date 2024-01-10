@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import * as S from "./workout-video-page.styled";
 
 export const WorkoutVideoPage = ({
@@ -19,10 +20,12 @@ export const WorkoutVideoPage = ({
   }
 
   return (
-    <div className="Container">
-      <S.LogoSkypro>
-        <S.LogoImg src="./img/logoSkypro.png" alt="logo" />
-      </S.LogoSkypro>
+    <>
+      <NavLink to="/">
+        <S.LogoSkypro>
+          <S.LogoImg src="./img/logoSkypro.png" alt="logo" />
+        </S.LogoSkypro>
+      </NavLink>
       <S.SelectedCourseTitle>Йога</S.SelectedCourseTitle>
       <S.SelectedTrainingTitle>
         Красота и здоровье / Йога на каждый день / 2 день
@@ -54,7 +57,6 @@ export const WorkoutVideoPage = ({
             Мой прогресс по тренировке 2:
           </S.TrainingProgressTitle>
           <S.TrainingProgressBox>
-
             <S.TrainingProgressInPercentage>
               <S.TrainingProgressElement>
                 Наклоны вперед
@@ -63,7 +65,9 @@ export const WorkoutVideoPage = ({
                 <S.ProgressInputForExerciseFirst
                   value={valueInPercentage + "%"}
                 ></S.ProgressInputForExerciseFirst>
-                <S.TrainingProgressInputPercentage value={valueInPercentage + "%"}>
+                <S.TrainingProgressInputPercentage
+                  value={parseInt(valueInPercentage)}
+                >
                   {valueInPercentage + "%"}
                 </S.TrainingProgressInputPercentage>
               </S.TrainingProgressInputBox>
@@ -78,7 +82,9 @@ export const WorkoutVideoPage = ({
                   value={valueInPercentageSecond + "%"}
                   // onChange={handleChangeValue  }
                 ></S.ProgressInputForExerciseSecond>
-                <S.TrainingProgressInputPercentage value={valueInPercentageSecond + "%"}>
+                <S.TrainingProgressInputPercentage
+                  value={parseInt(valueInPercentageSecond)}
+                >
                   {valueInPercentageSecond + "%"}
                 </S.TrainingProgressInputPercentage>
               </S.TrainingProgressInputBox>
@@ -93,16 +99,17 @@ export const WorkoutVideoPage = ({
                   value={valueInPercentageThird + "%"}
                   // onChange={handleChangeValue}
                 ></S.ProgressInputForExerciseThird>
-                <S.TrainingProgressInputPercentage value={valueInPercentageThird + "%"}>
+                <S.TrainingProgressInputPercentage
+                  value={parseInt(valueInPercentageThird)}
+                >
                   {valueInPercentageThird + "%"}
                 </S.TrainingProgressInputPercentage>
               </S.TrainingProgressInputBox>
             </S.TrainingProgressInPercentage>
-
           </S.TrainingProgressBox>
         </S.TrainingProgress>
       </S.Exercises>
-    </div>
+    </>
   );
 };
 

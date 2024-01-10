@@ -18,6 +18,7 @@ export const HeaderSvg = styled.svg`
   flex-shrink: 0;
 `;
 export const HeaderSelect = styled.select`
+  background-color: #fafafa;
   color: #000;
   text-align: right;
   border: 0px;
@@ -70,6 +71,10 @@ export const Button = styled.button`
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.05px;
+
+  &:hover {
+    background: #3f007d;
+  }
 `;
 export const Course = styled.div`
   margin-top: 75px;
