@@ -7,7 +7,6 @@ import { WorkOutComponent } from "./components/work-out-component/work-out-compo
 import { Auth } from "./pages/auth/Auth";
 import { Reg } from "./pages/reg/Reg"
 import { Login } from "./components/Login/Login";
-import { ChoiceWorkout } from "./components/choice-workout/ChoiceWorkout";
 
 export function AppRoutes() {
   return (
