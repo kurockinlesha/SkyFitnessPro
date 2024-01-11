@@ -1,19 +1,20 @@
 // import React, { useState } from "react";
 import * as S from "./ProfileStyle";
 import { NavLink } from "react-router-dom";
+import { Login } from "../Login/Login";
+import { Password } from "../Password/Password";
+import { useState } from "react";
 const Profile = () => {
-  // const S.ContainerProfile = S.d.div``;
-  // const S.ContainerProfile = S.d.div``;
-  // const [showLogin, setShowLogin] = useState(false)
-  // const handleShowLogin =() =>{
-  //   setShowLogin(!showLogin)
-  // }
+  // Состояние для модальных окон страницы профиля
+  const [modalActiveLogin, setModalActiveLogin] = useState(false);
+  const [modalActivePassword, setModalActivePassword] = useState(false);
+
   return (
     <S.ContainerProfile>
       <S.Header>
         <S.HeaderLogo>
-        <NavLink to='/'>
-          <S.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
+          <NavLink to="/">
+            <S.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
           </NavLink>
         </S.HeaderLogo>
         <S.HeaderProfile>
@@ -31,29 +32,41 @@ const Profile = () => {
         <S.Heading>
           <S.ProfileHeading>Мой профиль</S.ProfileHeading>
           <S.ProfileText>Логин: sergey.petrov96</S.ProfileText>
+          <Login
+            modalActiveLogin={modalActiveLogin}
+            setModalActiveLogin={setModalActiveLogin}
+          />
           <S.ProfileText>Пароль: 4fkhdj880d</S.ProfileText>
+          <Password
+            modalActivePassword={modalActivePassword}
+            setModalActivePassword={setModalActivePassword}
+          />
         </S.Heading>
         <S.ProfileButton>
-          <S.Button>Редактировать логин</S.Button>
-          <S.Button>Редактировать пароль</S.Button>
+          <S.Button onClick={() => setModalActiveLogin(true)}>
+            Редактировать логин
+          </S.Button>
+          <S.Button onClick={() => setModalActivePassword(true)}>
+            Редактировать пароль
+          </S.Button>
         </S.ProfileButton>
       </S.Profile>
       <S.Course>
         <S.ProfileHeading>Мои курсы</S.ProfileHeading>
         <S.CourseBox>
           <S.CourseItem1>
-            <NavLink to='/Course'>
-            <S.ButtonLink>Перейти</S.ButtonLink>
+            <NavLink to="/Course">
+              <S.ButtonLink>Перейти</S.ButtonLink>
             </NavLink>
           </S.CourseItem1>
           <S.CourseItem2>
-          <NavLink to='/Course'>
-            <S.ButtonLink>Перейти</S.ButtonLink>
+            <NavLink to="/Course">
+              <S.ButtonLink>Перейти</S.ButtonLink>
             </NavLink>
           </S.CourseItem2>
           <S.CourseItem3>
-            <NavLink to='/Course'>
-            <S.ButtonLink3>Перейти</S.ButtonLink3>
+            <NavLink to="/Course">
+              <S.ButtonLink3>Перейти</S.ButtonLink3>
             </NavLink>
           </S.CourseItem3>
         </S.CourseBox>

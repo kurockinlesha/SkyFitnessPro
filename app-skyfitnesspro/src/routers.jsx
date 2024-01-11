@@ -5,25 +5,25 @@ import { Course } from "./components/course/Course";
 import { Password } from "./components/Password/Password";
 import { WorkOutComponent } from "./components/work-out-component/work-out-component";
 import { Auth } from "./pages/auth/Auth";
-import { Reg } from "./pages/reg/Reg"
+import { Reg } from "./pages/reg/Reg";
 import { Login } from "./components/Login/Login";
 
 export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/auth" element={<Auth/>}/>
-      <Route path="/reg" element={<Reg/>}/>
-      <Route path="/Profile" element ={<Profile />}/>
-      
-      <Route path="/Course" element={<Course/>}/>
-      <Route path="/Password" element={<Password/>}/>
-      <Route path="/Login" element={<Login/>}/>
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/reg" element={<Reg />} />
+      <Route path="/Profile" element={<Profile />} />
 
-      <Route path="/WorkoutVideoPage" element={<WorkOutComponent/>}/>
-        {/* <Course /> */}
-        {/* <Password /> */}
-        {/* <ChoiceWorkout/> */}
+      <Route path="/Course" element={<Course />} />
+      <Route path="/Password" element={<Password />} />
+      <Route path="/Login" element={<Login />} />
+
+      <Route path="/WorkoutVideoPage" element={<WorkOutComponent />} />
+      {/* <Course /> */}
+      {/* <Password /> */}
+      {/* <ChoiceWorkout/> */}
     </Routes>
   );
 }

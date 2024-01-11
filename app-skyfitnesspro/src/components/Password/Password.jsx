@@ -1,12 +1,14 @@
 import React from "react";
 
 import * as S from "./LoginPasswordStyle";
-const Password = () => {
+const Password = ({ modalActivePassword, setModalActivePassword }) => {
   return (
     // <S.Wrapper>
-      // <S.ContainerSignup>
-        <S.ModalBlock>
-          <S.ModalFormLogin>
+    //   <S.ContainerSignup>
+    <>
+      {modalActivePassword && (
+        <S.ModalBlock onClick={() => setModalActivePassword(false)}>
+          <S.ModalFormLogin onClick={(e) => e.stopPropagation()}>
             <S.ModalLogo>
               <S.ModalLogoImg src="./img/logo-SkyFitnessPro.svg" alt="logo" />
             </S.ModalLogo>
@@ -24,13 +26,13 @@ const Password = () => {
               placeholder="Повторите пароль"
             />
             <S.MdalBtnSignupEnt>
-              <S.MdalBtnSignupEntLink href="/">
-                Сохранить
-              </S.MdalBtnSignupEntLink>
+              <S.MdalBtnSignupEntLink>Сохранить</S.MdalBtnSignupEntLink>
             </S.MdalBtnSignupEnt>
           </S.ModalFormLogin>
         </S.ModalBlock>
-      // </S.ContainerSignup>
+      )}
+    </>
+    //   </S.ContainerSignup>
     // </S.Wrapper>
   );
 };
