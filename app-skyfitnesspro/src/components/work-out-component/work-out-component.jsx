@@ -1,33 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { WorkoutVideoPage } from "../workout-video-page/workout-video-page";
 import { MyProgress } from "../progress/progress";
 import { CountedProgress } from "../progress/progress-counted";
-import { db } from "../firebase/firebase";
 
 export const WorkOutComponent = () => {
-  const [dataFirebase, setDataFirebase] = useState([]);
-
-  useEffect(() => {
-    db.collection("courses")
-      .get()
-      .then((querySnapshot) => {
-        console.log(querySnapshot);
-        const trainings = [];
-        querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
-          trainings.push(doc.data());
-        });
-
-        setDataFirebase(trainings);
-       
-      })
-      .catch((error) => {
-        console.error("Error getting documents: ", error);
-      });
- 
-  }, []);
- 
-  console.log(dataFirebase);
 
   const [isMyProgressOpen, setIsMyProgressOpen] = useState(false);
   const [isMyProgressCounted, setIsMyProgressCounted] = useState(false);
