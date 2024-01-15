@@ -6,6 +6,8 @@ export const WorkoutVideoPage = ({
   openModalWindow,
   progressValueSecond,
   progressValueThird,
+  workoutsFirebase,
+  selectedWorkoutId
 }) => {
   let valueInPercentage = Math.round((progressValue / 10) * 100);
   let valueInPercentageSecond = Math.round((progressValueSecond / 10) * 100);
@@ -18,6 +20,7 @@ export const WorkoutVideoPage = ({
   } else if (valueInPercentageThird > 100) {
     valueInPercentageThird = 100;
   }
+  console.log(selectedWorkoutId);
 
   return (
     <>
@@ -31,8 +34,18 @@ export const WorkoutVideoPage = ({
         Красота и здоровье / Йога на каждый день / 2 день
       </S.SelectedTrainingTitle>
       <S.Video>
-        <S.VideoImg src="./img/yoga.jpg" alt="yoga" />
-        <S.VideoImgPlay src="./img/play.png" alt="play" />
+        {workoutsFirebase.length > 0 ? (
+          <iframe
+            title="trainingVideo"
+            frameborder='0'
+            width="100%"
+            height="639px"
+            src={workoutsFirebase[0].video}
+          ></iframe>
+        ) : (
+          <S.SelectedTrainingTitle>Идет загрузка...</S.SelectedTrainingTitle>
+        )}
+    
       </S.Video>
       <S.Exercises>
         <S.ExercisesDescription>

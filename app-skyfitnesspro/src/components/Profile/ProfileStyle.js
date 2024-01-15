@@ -92,22 +92,37 @@ export const CourseItem = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  background-image: ${(props) =>
+    props.courseid === "ab1c3f"
+      ? "url('./img/icon-class-yoga.png')"
+      : props.courseid === "kfpq8e"
+      ? "url('./img/icon-class-Stretching.png')"
+      : "url('./img/icon-class-Bodyflex.png')"};
+  width: ${(props) => props.courseid === "q02a6i" ? "330px" : ""};
+  height: ${(props) => props.courseid === "q02a6i" ? "435px" : ""};
+  margin-top: ${(props) => props.courseid === "q02a6i" ? "24px" : ""};
+  box-shadow: ${(props) =>
+    props.courseid === "q02a6i"
+      ? "-10px 10px 15.999px 0px rgba(0, 0, 0, 0.1), 10px -10px 16px 0px rgba(0, 0, 0, 0.1)"
+      : ""};
+  border-radius: ${(props) => props.courseid === "q02a6i" ? "29.998px" : ""};
 `;
-export const CourseItem1 = styled(CourseItem)`
-  background-image: url("./img/icon-class-yoga.png");
-`;
-export const CourseItem2 = styled(CourseItem)`
-  background-image: url("./img/icon-class-Stretching.png");
-`;
-export const CourseItem3 = styled(CourseItem)`
-  background-image: url("./img/icon-class-Bodyflex.png");
-  width: 330px;
-  height: 435px;
-  margin-top: 24px;
-  box-shadow: -10px 10px 15.999px 0px rgba(0, 0, 0, 0.1),
-    10px -10px 16px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 29.998px;
-`;
+// export const CourseItem1 = styled(CourseItem)`
+//   background-image: url("./img/icon-class-yoga.png");
+// `;
+// export const CourseItem2 = styled(CourseItem)`
+//   background-image: url("./img/icon-class-Stretching.png");
+// `;
+// export const CourseItem3 = styled(CourseItem)`
+//   background-image: url("./img/icon-class-Bodyflex.png");
+//   width: 330px;
+//   height: 435px;
+//   margin-top: 24px;
+//   box-shadow: -10px 10px 15.999px 0px rgba(0, 0, 0, 0.1),
+//     10px -10px 16px 0px rgba(0, 0, 0, 0.1);
+//   border-radius: 29.998px;
+// `;
 export const ButtonLink = styled.button`
   width: 136px;
   height: 43px;

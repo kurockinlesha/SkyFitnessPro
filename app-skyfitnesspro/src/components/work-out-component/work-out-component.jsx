@@ -3,8 +3,7 @@ import { WorkoutVideoPage } from "../workout-video-page/workout-video-page";
 import { MyProgress } from "../progress/progress";
 import { CountedProgress } from "../progress/progress-counted";
 
-export const WorkOutComponent = () => {
-
+export const WorkOutComponent = ({ workoutsFirebase, selectedWorkoutId }) => {
   const [isMyProgressOpen, setIsMyProgressOpen] = useState(false);
   const [isMyProgressCounted, setIsMyProgressCounted] = useState(false);
   const [isErrorExist, setIsErrorExist] = useState(false);
@@ -41,6 +40,8 @@ export const WorkOutComponent = () => {
         openModalWindow={openModalWindow}
         progressValueSecond={progressValueSecond}
         progressValueThird={progressValueThird}
+        workoutsFirebase={workoutsFirebase}
+        selectedWorkoutId={selectedWorkoutId}
       />
       <MyProgress
         progressValue={progressValue}

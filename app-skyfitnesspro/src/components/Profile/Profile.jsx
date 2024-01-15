@@ -4,10 +4,26 @@ import { NavLink } from "react-router-dom";
 import { Login } from "../Login/Login";
 import { Password } from "../Password/Password";
 import { useState } from "react";
-const Profile = () => {
+import { ChoiceWorkout } from "../choice-workout/ChoiceWorkout";
+const Profile = ({ coursesFirebase, workoutsFirebase, selectedWorkoutId,
+  setSelectedWorkoutId }) => {
   // Состояние для модальных окон страницы профиля
   const [modalActiveLogin, setModalActiveLogin] = useState(false);
   const [modalActivePassword, setModalActivePassword] = useState(false);
+  const [modalActiveTrainings, setModalActiveTrainings] = useState(false);
+  const [selectedCourseId, setSelectedCourseId] = useState(null);
+
+  const handleSelectCourse = (course) => {
+    setSelectedCourseId(course._id);
+    setModalActiveTrainings(true);
+    console.log(selectedCourseId);
+  }
+
+  const selectedIds = ["ab1c3f", "kfpq8e", "q02a6i"];
+
+  const filteredCourses = coursesFirebase.filter((course) =>
+    selectedIds.includes(course._id)
+  );
 
   return (
     <S.ContainerProfile>
@@ -54,21 +70,42 @@ const Profile = () => {
       <S.Course>
         <S.ProfileHeading>Мои курсы</S.ProfileHeading>
         <S.CourseBox>
-          <S.CourseItem1>
-            <NavLink to="/Course">
+          {filteredCourses.map((course) => (
+            <>
+              <S.CourseItem key={course._id} courseid={course._id}>
+                {/* <NavLink to={`/ChoiceWorkout/${course._id}`}> */}
+                <S.ButtonLink onClick={() => handleSelectCourse(course) }>
+                  Перейти
+                </S.ButtonLink>
+                {/* </NavLink> */}
+              </S.CourseItem>
+              <ChoiceWorkout
+                modalActiveTrainings={modalActiveTrainings}
+                setModalActiveTrainings={setModalActiveTrainings}
+                workoutsFirebase={workoutsFirebase}
+                coursesFirebase={coursesFirebase}
+                selectedCourseId={selectedCourseId}
+                selectedWorkoutId={selectedWorkoutId}
+            setSelectedWorkoutId={setSelectedWorkoutId}
+              />
+            </>
+          ))}
+
+          {/* <S.CourseItem1>
+            <NavLink to="/ChoiceWorkout">
               <S.ButtonLink>Перейти</S.ButtonLink>
             </NavLink>
           </S.CourseItem1>
           <S.CourseItem2>
-            <NavLink to="/Course">
+            <NavLink to="/ChoiceWorkout">
               <S.ButtonLink>Перейти</S.ButtonLink>
             </NavLink>
           </S.CourseItem2>
           <S.CourseItem3>
-            <NavLink to="/Course">
+            <NavLink to="/ChoiceWorkout">
               <S.ButtonLink3>Перейти</S.ButtonLink3>
             </NavLink>
-          </S.CourseItem3>
+          </S.CourseItem3> */}
         </S.CourseBox>
       </S.Course>
     </S.ContainerProfile>
