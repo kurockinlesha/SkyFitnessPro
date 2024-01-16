@@ -73,7 +73,9 @@ export function AppRoutes() {
       />
       {/* <Route path="/ChoiceWorkout/:courseId" element={<ChoiceWorkout coursesFirebase={coursesFirebase} workoutsFirebase={workoutsFirebase} />} /> */}
 
+
       <Route path="/course/:courseId" element={<Course />} />
+
       {/* <Route path="/Password" element={<Password />} />
       <Route path="/Login" element={<Login />} /> */}
 
