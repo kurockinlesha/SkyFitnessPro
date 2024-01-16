@@ -18,23 +18,37 @@ export const HeaderSvg = styled.svg`
   flex-shrink: 0;
 `;
 export const HeaderSelect = styled.select`
+  font: inherit;
+  
+  word-spacing: inherit;
   background-color: #fafafa;
   color: #000;
-  text-align: right;
-  border: 0px;
-  outline: 0px;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 32px; /* 133.333% */
   letter-spacing: -0.1px;
+  border: none;
+ 
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
 `;
+
+export const HeaderSelectOption = styled.option`
+  border: none;
+  outline: none;
+`;
+
 export const Profile = styled.div``;
 export const Heading = styled.div``;
 export const ProfileHeading = styled.h1`
   color: #000;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
+ 
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
@@ -108,27 +122,12 @@ export const CourseItem = styled.div`
       : ""};
   border-radius: ${(props) => props.courseid === "q02a6i" ? "29.998px" : ""};
 `;
-// export const CourseItem1 = styled(CourseItem)`
-//   background-image: url("./img/icon-class-yoga.png");
-// `;
-// export const CourseItem2 = styled(CourseItem)`
-//   background-image: url("./img/icon-class-Stretching.png");
-// `;
-// export const CourseItem3 = styled(CourseItem)`
-//   background-image: url("./img/icon-class-Bodyflex.png");
-//   width: 330px;
-//   height: 435px;
-//   margin-top: 24px;
-//   box-shadow: -10px 10px 15.999px 0px rgba(0, 0, 0, 0.1),
-//     10px -10px 16px 0px rgba(0, 0, 0, 0.1);
-//   border-radius: 29.998px;
-// `;
+
 export const ButtonLink = styled.button`
   width: 136px;
   height: 43px;
   position: absolute;
   left: 40px;
-  bottom: 47px;
   border-radius: 80px;
   background: #c7e957;
   color: #000;
@@ -141,7 +140,10 @@ export const ButtonLink = styled.button`
   line-height: 115%;
   letter-spacing: -0.05px;
   border: none;
+  bottom: ${(props) => props.courseid === "q02a6i" ? "22px" : "47px"};
+
+  &:hover {
+    background: #daf289;
+  }
 `;
-export const ButtonLink3 = styled(ButtonLink)`
-  bottom: 22px;
-`;
+

@@ -14,7 +14,7 @@ import { app } from "./components/firebase/firebase";
 // import { ChoiceWorkout } from "./components/choice-workout/ChoiceWorkout";
 
 export function AppRoutes() {
-  const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
+  
   //workouts: наименование курса, видео, упражнения
   const [workoutsFirebase, setWorkoutsFirebase] = useState([]);
   //courses: напрввления, описания, наименование на рус и англ, workouts
@@ -51,6 +51,8 @@ export function AppRoutes() {
 
   console.log(workoutsFirebase);
   console.log(coursesFirebase);
+  
+  const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
 
   return (
     <Routes>

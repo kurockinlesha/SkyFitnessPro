@@ -7,20 +7,26 @@ export const WorkOutComponent = ({ workoutsFirebase, selectedWorkoutId }) => {
   const [isMyProgressOpen, setIsMyProgressOpen] = useState(false);
   const [isMyProgressCounted, setIsMyProgressCounted] = useState(false);
   const [isErrorExist, setIsErrorExist] = useState(false);
-  const [progressValue, setProgressValue] = useState("");
-  const [progressValueSecond, setProgressValueSecond] = useState("");
-  const [progressValueThird, setProgressValueThird] = useState("");
+  const [progressValues, setProgressValues] = useState([]);
+
+  if (workoutsFirebase.length === 0) {
+    return <p>Loading...</p>;
+  }
+
+  const workout =
+  workoutsFirebase ?
+  workoutsFirebase.find((workout) => workout._id === selectedWorkoutId) : "";
+
+console.log(workout);
 
   const openModalWindow = () => {
     setIsMyProgressOpen(true);
   };
 
   const closeModalWindow = () => {
-    if (
-      progressValue === "" ||
-      progressValueSecond === "" ||
-      progressValueThird === ""
-    ) {
+    console.log(progressValues.length);
+    console.log(workout.exercises.length);
+    if (progressValues.some(value => value === '')) {
       setIsMyProgressOpen(true);
       setIsErrorExist(true);
     } else {
@@ -36,23 +42,18 @@ export const WorkOutComponent = ({ workoutsFirebase, selectedWorkoutId }) => {
   return (
     <>
       <WorkoutVideoPage
-        progressValue={progressValue}
+        progressValues={progressValues}
         openModalWindow={openModalWindow}
-        progressValueSecond={progressValueSecond}
-        progressValueThird={progressValueThird}
         workoutsFirebase={workoutsFirebase}
-        selectedWorkoutId={selectedWorkoutId}
+        workout={workout}
       />
       <MyProgress
-        progressValue={progressValue}
-        progressValueSecond={progressValueSecond}
-        progressValueThird={progressValueThird}
-        setProgressValue={setProgressValue}
-        setProgressValueSecond={setProgressValueSecond}
-        setProgressValueThird={setProgressValueThird}
+        progressValues={progressValues}
+        setProgressValues={setProgressValues}
         isMyProgressOpen={isMyProgressOpen}
         closeModalWindow={closeModalWindow}
         isErrorExist={isErrorExist}
+        workout={workout}
       />
       <CountedProgress isMyProgressCounted={isMyProgressCounted} />
     </>

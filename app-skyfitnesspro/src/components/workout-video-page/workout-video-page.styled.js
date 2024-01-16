@@ -16,6 +16,7 @@ export const SelectedCourseTitle = styled.h1`
   font-weight: 400;
   line-height: 56px;
   padding-bottom: 40px;
+  padding-top: 75px;
   font-variant-numeric: lining-nums proportional-nums;
 `;
 export const SelectedTrainingTitle = styled.h2`

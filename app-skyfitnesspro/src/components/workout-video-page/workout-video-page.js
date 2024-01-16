@@ -1,124 +1,104 @@
 import { NavLink } from "react-router-dom";
 import * as S from "./workout-video-page.styled";
+import * as Style from "../Profile/ProfileStyle";
+import { PersonalData } from "../Profile/Profile";
 
 export const WorkoutVideoPage = ({
-  progressValue,
+  progressValues,
   openModalWindow,
-  progressValueSecond,
-  progressValueThird,
   workoutsFirebase,
-  selectedWorkoutId
+  workout,
 }) => {
-  let valueInPercentage = Math.round((progressValue / 10) * 100);
-  let valueInPercentageSecond = Math.round((progressValueSecond / 10) * 100);
-  let valueInPercentageThird = Math.round((progressValueThird / 5) * 100);
 
-  if (valueInPercentage > 100) {
-    valueInPercentage = 100;
-  } else if (valueInPercentageSecond > 100) {
-    valueInPercentageSecond = 100;
-  } else if (valueInPercentageThird > 100) {
-    valueInPercentageThird = 100;
-  }
-  console.log(selectedWorkoutId);
+
+
+  const workoutName = workout?.name ? workout?.name.split("/") : "";
+  const workoutCourseName = workoutName[0];
+  workoutName && workoutName.shift();
+  const workoutCourseText = workoutName && workoutName.join("/");
 
   return (
     <>
-      <NavLink to="/">
-        <S.LogoSkypro>
-          <S.LogoImg src="./img/logoSkypro.png" alt="logo" />
-        </S.LogoSkypro>
-      </NavLink>
-      <S.SelectedCourseTitle>Йога</S.SelectedCourseTitle>
-      <S.SelectedTrainingTitle>
-        Красота и здоровье / Йога на каждый день / 2 день
-      </S.SelectedTrainingTitle>
+      <Style.Header>
+        <Style.HeaderLogo>
+          <NavLink to="/">
+            <Style.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
+          </NavLink>
+        </Style.HeaderLogo>
+       <PersonalData />
+      </Style.Header>
+      <S.SelectedCourseTitle>{workoutCourseName}</S.SelectedCourseTitle>
+      <S.SelectedTrainingTitle>{workoutCourseText}</S.SelectedTrainingTitle>
       <S.Video>
         {workoutsFirebase.length > 0 ? (
           <iframe
             title="trainingVideo"
-            frameborder='0'
+            frameborder="0"
             width="100%"
             height="639px"
-            src={workoutsFirebase[0].video}
+            src={workout && workout.video}
           ></iframe>
         ) : (
           <S.SelectedTrainingTitle>Идет загрузка...</S.SelectedTrainingTitle>
         )}
-    
       </S.Video>
       <S.Exercises>
         <S.ExercisesDescription>
           <S.SelectedTrainingTitle>Упражнения</S.SelectedTrainingTitle>
           <S.SelectedTrainingList>
-            <S.SelectedTrainingListElement>
-              Наклон вперед (10 повторений)
-            </S.SelectedTrainingListElement>
-            <S.SelectedTrainingListElement>
-              Наклон назад (10 повторений)
-            </S.SelectedTrainingListElement>
-            <S.SelectedTrainingListElement>
-              Поднятие ног, согнутых в коленях (5 повторений)
-            </S.SelectedTrainingListElement>
+            {workout &&
+              workout.exercises.map((exercise) => (
+                <S.SelectedTrainingListElement>
+                  {exercise.name}
+                </S.SelectedTrainingListElement>
+              ))}
           </S.SelectedTrainingList>
           <S.SelectedTrainingButton onClick={openModalWindow}>
             Заполнить свой прогресс
           </S.SelectedTrainingButton>
         </S.ExercisesDescription>
+
         <S.TrainingProgress>
           <S.TrainingProgressTitle>
             Мой прогресс по тренировке 2:
           </S.TrainingProgressTitle>
           <S.TrainingProgressBox>
-            <S.TrainingProgressInPercentage>
-              <S.TrainingProgressElement>
-                Наклоны вперед
-              </S.TrainingProgressElement>
-              <S.TrainingProgressInputBox>
-                <S.ProgressInputForExerciseFirst
-                  value={valueInPercentage + "%"}
-                ></S.ProgressInputForExerciseFirst>
-                <S.TrainingProgressInputPercentage
-                  value={parseInt(valueInPercentage)}
-                >
-                  {valueInPercentage + "%"}
-                </S.TrainingProgressInputPercentage>
-              </S.TrainingProgressInputBox>
-            </S.TrainingProgressInPercentage>
+            {workout &&
+              workout.exercises.map((exercise, index) => {
+                const exerciseText = exercise?.name
+                  ? exercise?.name.split("(")
+                  : "";
 
-            <S.TrainingProgressInPercentage>
-              <S.TrainingProgressElement>
-                Наклоны назад
-              </S.TrainingProgressElement>
-              <S.TrainingProgressInputBox>
-                <S.ProgressInputForExerciseSecond
-                  value={valueInPercentageSecond + "%"}
-                  // onChange={handleChangeValue  }
-                ></S.ProgressInputForExerciseSecond>
-                <S.TrainingProgressInputPercentage
-                  value={parseInt(valueInPercentageSecond)}
-                >
-                  {valueInPercentageSecond + "%"}
-                </S.TrainingProgressInputPercentage>
-              </S.TrainingProgressInputBox>
-            </S.TrainingProgressInPercentage>
+                let valueInPercentage;
+                if (exercise.quantity !== 0 && !isNaN(progressValues[index])) {
+                  valueInPercentage = Math.round(
+                    (progressValues[index] / exercise.quantity) * 100
+                  );
+                } else {
+                  valueInPercentage = 0;
+                }
 
-            <S.TrainingProgressInPercentage>
-              <S.TrainingProgressElement>
-                Поднятие ног, согнутых в коленях
-              </S.TrainingProgressElement>
-              <S.TrainingProgressInputBox>
-                <S.ProgressInputForExerciseThird
-                  value={valueInPercentageThird + "%"}
-                  // onChange={handleChangeValue}
-                ></S.ProgressInputForExerciseThird>
-                <S.TrainingProgressInputPercentage
-                  value={parseInt(valueInPercentageThird)}
-                >
-                  {valueInPercentageThird + "%"}
-                </S.TrainingProgressInputPercentage>
-              </S.TrainingProgressInputBox>
-            </S.TrainingProgressInPercentage>
+                if (valueInPercentage > 100) {
+                  valueInPercentage = 100;
+                }
+                return (
+                  <S.TrainingProgressInPercentage>
+                    <S.TrainingProgressElement>
+                      {exerciseText[0]}
+                    </S.TrainingProgressElement>
+                    <S.TrainingProgressInputBox>
+                      <S.ProgressInputForExerciseFirst
+                        value={valueInPercentage + "%"}
+                      ></S.ProgressInputForExerciseFirst>
+                      <S.TrainingProgressInputPercentage
+                        value={parseInt(valueInPercentage)}
+                      >
+                        {valueInPercentage + "%"}
+                      </S.TrainingProgressInputPercentage>
+                    </S.TrainingProgressInputBox>
+                  </S.TrainingProgressInPercentage>
+                );
+              })}
           </S.TrainingProgressBox>
         </S.TrainingProgress>
       </S.Exercises>
