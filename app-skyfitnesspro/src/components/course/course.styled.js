@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NameCourse = styled.div`
-  background-image: url("./img/yoga.svg");
+  background-image: url("/img/yoga.svg");
   background-repeat: no-repeat;
   margin-bottom: 75px;
   height: 310px;
@@ -160,7 +160,7 @@ export const TrainingButton = styled.button`
   background: var(--Palette-Purple-90, #580ea2);
 
   &:hover {
-    background: #3F007D;
+    background: #3f007d;
   }
 `;
 

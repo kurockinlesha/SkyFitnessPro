@@ -3,62 +3,66 @@ import * as S from "./course.styled";
 import * as Styled from "../workout-video-page/workout-video-page.styled";
 import { NavLink, useParams } from "react-router-dom";
 
-export function Course() {
-  const {courseId} = useParams();
+export function Course({ coursesFirebase }) {
+  const { courseId } = useParams();
   console.log(courseId);
+  const selectedCourse = coursesFirebase.find(
+    (course) => course._id === courseId
+  );
+  console.log(selectedCourse);
+  const selectedCourseBlockOne = selectedCourse.directions.slice(0, 3);
+  const selectedCourseBlockTwo = selectedCourse.directions.slice(3);
+  console.log(selectedCourseBlockOne);
+  console.log(selectedCourseBlockTwo);
   return (
     <>
-     <NavLink to="/">
-      <Styled.LogoSkypro>
-        <Styled.LogoImg src="./img/logoSkypro.png" alt="logo" />
-      </Styled.LogoSkypro>
+      <NavLink to="/">
+        <Styled.LogoSkypro>
+          <Styled.LogoImg src="/img/logoSkypro.png" alt="logo" />
+        </Styled.LogoSkypro>
       </NavLink>
       <S.NameCourse>
-        <S.MainNameCourse>Йога</S.MainNameCourse>
+        <S.MainNameCourse>{selectedCourse.nameRU}</S.MainNameCourse>
       </S.NameCourse>
       <S.ReasonCourse>Подойдет для вас, если:</S.ReasonCourse>
       <S.ReasonsCourses>
-        <S.Reasons>
-          <S.Point>
-            <S.PointText>1</S.PointText>
-          </S.Point>
-          <S.Type>Давно хотели попробовать йогу, но не решались начать.</S.Type>
-        </S.Reasons>
-        <S.Reasons>
-          <S.Point>
-            <S.PointText>2</S.PointText>
-          </S.Point>
-          <S.Type>
-            Хотите укрепить позвоночник, избавиться от болей в спине и суставах.
-          </S.Type>
-        </S.Reasons>
-        <S.Reasons>
-          <S.Point>
-            <S.PointText>3</S.PointText>
-          </S.Point>
-          <S.Type>Ищете активность, полезную для тела и души.</S.Type>
-        </S.Reasons>
+        {selectedCourse.fitting.map((fitt, index) => {
+          return (
+            <>
+              <S.Reasons>
+                <S.Point>
+                  <S.PointText>{index + 1}</S.PointText>
+                </S.Point>
+                <S.Type>{fitt}</S.Type>
+              </S.Reasons>
+            </>
+          );
+        })}
       </S.ReasonsCourses>
       <S.DirectionsCourse>Направления:</S.DirectionsCourse>
       <S.DirectionsCourses>
         <S.TypesList>
-          <S.TypeElement>Йога для новичков</S.TypeElement>
-          <S.TypeElement>Классическая йога</S.TypeElement>
-          <S.TypeElement>Йогатерапия</S.TypeElement>
+          {selectedCourseBlockOne.map((dir, index) => {
+            return (
+              <>
+                <S.TypeElement key={index}>{dir}</S.TypeElement>
+              </>
+            );
+          })}
         </S.TypesList>
         <S.TypesList>
-          <S.TypeElement>Кундалини-йога</S.TypeElement>
-          <S.TypeElement>Хатха-йога</S.TypeElement>
-          <S.TypeElement>Аштанга-йога</S.TypeElement>
+          {selectedCourseBlockTwo &&
+            selectedCourseBlockTwo.map((dir, index) => {
+              return (
+                <>
+                  <S.TypeElement key={index}>{dir}</S.TypeElement>
+                </>
+              );
+            })}
         </S.TypesList>
       </S.DirectionsCourses>
       <S.Description>
-        <S.DescriptionText>
-          Благодаря комплексному воздействию упражнений происходит проработка
-          всех групп мышц, тренировка суставов, улучшается циркуляция крови.
-          Кроме того, упражнения дарят отличное настроение, заряжают бодростью и
-          помогают противостоять стрессам.
-        </S.DescriptionText>
+        <S.DescriptionText>{selectedCourse.description}</S.DescriptionText>
       </S.Description>
       <S.Application>
         <S.ApplicationText>
@@ -70,10 +74,9 @@ export function Course() {
           <S.TrainingText>Записаться на тренировку</S.TrainingText>
         </S.TrainingButton>
         <S.ApplicationImg>
-          <img src="./img//phone.svg" alt="phone" />
+          <img src="/img//phone.svg" alt="phone" />
         </S.ApplicationImg>
       </S.Application>
-   
     </>
   );
 }

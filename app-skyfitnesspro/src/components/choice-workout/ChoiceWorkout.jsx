@@ -1,5 +1,4 @@
 import React from "react";
-import "./choiceWorkoutStyle.css";
 import * as S from "./ChoiceWorkout.styled";
 import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
@@ -34,7 +33,7 @@ const ChoiceWorkout = ({
   const handleChoseWorkout = (workout) => {
     setSelectedWorkoutId(workout._id);
     setTimeout(() => {
-      navigate("/WorkoutVideoPage");
+      navigate("/workoutVideoPage");
     }, 2 * 1000);
     console.log(selectedWorkoutId);
   };

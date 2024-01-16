@@ -14,7 +14,6 @@ import { app } from "./components/firebase/firebase";
 // import { ChoiceWorkout } from "./components/choice-workout/ChoiceWorkout";
 
 export function AppRoutes() {
-  
   //workouts: наименование курса, видео, упражнения
   const [workoutsFirebase, setWorkoutsFirebase] = useState([]);
   //courses: напрввления, описания, наименование на рус и англ, workouts
@@ -51,13 +50,15 @@ export function AppRoutes() {
 
   console.log(workoutsFirebase);
   console.log(coursesFirebase);
-  
+
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
 
   return (
     <Routes>
-      <Route path="/" element={<MainPage 
-      coursesFirebase={coursesFirebase}/>} />
+      <Route
+        path="/"
+        element={<MainPage coursesFirebase={coursesFirebase} />}
+      />
       <Route path="/auth" element={<Auth />} />
       <Route path="/reg" element={<Reg />} />
       <Route
@@ -73,8 +74,10 @@ export function AppRoutes() {
       />
       {/* <Route path="/ChoiceWorkout/:courseId" element={<ChoiceWorkout coursesFirebase={coursesFirebase} workoutsFirebase={workoutsFirebase} />} /> */}
 
-
-      <Route path="/course/:courseId" element={<Course />} />
+      <Route
+        path="/course/:courseId"
+        element={<Course coursesFirebase={coursesFirebase} />}
+      />
 
       {/* <Route path="/Password" element={<Password />} />
       <Route path="/Login" element={<Login />} /> */}
