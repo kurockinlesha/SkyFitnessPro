@@ -1,9 +1,11 @@
 import React from "react";
 import * as S from "./course.styled";
 import * as Styled from "../workout-video-page/workout-video-page.styled";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 export function Course() {
+  const {courseId} = useParams();
+  console.log(courseId);
   return (
     <>
      <NavLink to="/">

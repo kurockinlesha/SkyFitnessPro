@@ -6,7 +6,8 @@ import { Courses } from "../../components/courses/courses";
 export const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 };
-export function MainPage() {
+
+export function MainPage({coursesFirebase}) {
   return (
     
     // <S.Wrapper >
@@ -14,7 +15,9 @@ export function MainPage() {
           <S.Main>
             <Header />
 
-            <Courses />
+            <Courses 
+            coursesFirebase={coursesFirebase}/>
+          
             <S.ButtonScroll>
               <S.ButtonScrollMain
                 //   onClick={scroll}

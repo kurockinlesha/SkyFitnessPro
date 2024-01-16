@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const ChoiceWorkoutWrapper = styled.div`
+  opacity: 2;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ChoiceWorkoutContainer = styled.div`
   width: 444px;
   height: 626px;
@@ -8,7 +21,6 @@ export const ChoiceWorkoutContainer = styled.div`
   align-items: center;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
-  position: absolute;
   left: calc(50% - (366px / 2));
   top: calc(50% - (439px / 2));
 `;
