@@ -1,11 +1,21 @@
 import styled from "styled-components";
 
+export const MyProgressDataContainer = styled.div`
+opacity: 2;
+top: 0;
+left: 0;
+background-color: rgba(0, 0, 0, 0.4);
+height: 100vh;
+width: 100vw;
+position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+
 export const MyProgressData = styled.div`
-  position: fixed;
-  left: 35%;
-  top: 50%;
   width: 444px;
-  height: ${(props) => (props.isErrorExist ? "600px" : "554px")};
+  min-height: ${(props) => (props.isErrorExist ? "600px" : "554px")};
   border-radius: 12px;
   background: #fff;
   display: flex;
@@ -79,6 +89,7 @@ export const MyProgressButton = styled.button`
   padding-top: 12px;
   padding-bottom: 16px;
   margin-top: 10px;
+  margin-bottom: 44px;
 
   &:hover {
     background: #3f007d;
@@ -87,8 +98,7 @@ export const MyProgressButton = styled.button`
 
 export const CountedProgressBox = styled.div`
   position: fixed;
-  left: 35%;
-  top: 50%;
+ 
   width: 444px;
   height: 360px;
   border-radius: 12px;
@@ -123,4 +133,7 @@ export const CountedProgressImg = styled.img`
 
 export const ErrorText = styled.p`
   color: red;
+  margin-bottom: 40px;
+  font-size: 25px;
+  text-align: center;
 `;
