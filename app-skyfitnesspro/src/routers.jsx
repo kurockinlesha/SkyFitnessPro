@@ -56,11 +56,12 @@ export function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={<MainPage 
+      coursesFirebase={coursesFirebase}/>} />
       <Route path="/auth" element={<Auth />} />
       <Route path="/reg" element={<Reg />} />
       <Route
-        path="/Profile"
+        path="/profile"
         element={
           <Profile
             coursesFirebase={coursesFirebase}
@@ -72,12 +73,14 @@ export function AppRoutes() {
       />
       {/* <Route path="/ChoiceWorkout/:courseId" element={<ChoiceWorkout coursesFirebase={coursesFirebase} workoutsFirebase={workoutsFirebase} />} /> */}
 
-      <Route path="/Course" element={<Course />} />
+
+      <Route path="/course/:courseId" element={<Course />} />
+
       {/* <Route path="/Password" element={<Password />} />
       <Route path="/Login" element={<Login />} /> */}
 
       <Route
-        path="/WorkoutVideoPage"
+        path="/workoutVideoPage"
         element={
           <WorkOutComponent
             workoutsFirebase={workoutsFirebase}
