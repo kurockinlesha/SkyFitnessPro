@@ -1,12 +1,16 @@
 // import React, { useState } from "react";
 import * as S from "./ProfileStyle";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Login } from "../Login/Login";
 import { Password } from "../Password/Password";
 import { useState } from "react";
 import { ChoiceWorkout } from "../choice-workout/ChoiceWorkout";
+import { useAuth } from "../hooks/use-auth";
+
 const Profile = ({ coursesFirebase, workoutsFirebase, selectedWorkoutId,
-  setSelectedWorkoutId }) => {
+  setSelectedWorkoutId, password }) => {
+    const { isAuth, email } = useAuth();
+    const navigate = useNavigate();
   // Состояние для модальных окон страницы профиля
   const [modalActiveLogin, setModalActiveLogin] = useState(false);
   const [modalActivePassword, setModalActivePassword] = useState(false);
@@ -26,24 +30,24 @@ const Profile = ({ coursesFirebase, workoutsFirebase, selectedWorkoutId,
   );
 
   return (
-    <S.ContainerProfile>
+    isAuth ? (<S.ContainerProfile>
       <S.Header>
         <S.HeaderLogo>
           <NavLink to="/">
             <S.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
           </NavLink>
         </S.HeaderLogo>
-       <PersonalData />
+       <PersonalData email={email} />
       </S.Header>
       <S.Profile>
         <S.Heading>
           <S.ProfileHeading>Мой профиль</S.ProfileHeading>
-          <S.ProfileText>Логин: sergey.petrov96</S.ProfileText>
+          <S.ProfileText>Логин: {email}</S.ProfileText>
           <Login
             modalActiveLogin={modalActiveLogin}
             setModalActiveLogin={setModalActiveLogin}
           />
-          <S.ProfileText>Пароль: 4fkhdj880d</S.ProfileText>
+          <S.ProfileText>Пароль: {password}</S.ProfileText>
           <Password
             modalActivePassword={modalActivePassword}
             setModalActivePassword={setModalActivePassword}
@@ -84,21 +88,22 @@ const Profile = ({ coursesFirebase, workoutsFirebase, selectedWorkoutId,
 
         </S.CourseBox>
       </S.Course>
-    </S.ContainerProfile>
+    </S.ContainerProfile>) : navigate("/") 
+    
   );
 };
 
 export { Profile };
 
 
-export const PersonalData = () => {
+export const PersonalData = ({email}) => {
   return (
    <S.HeaderProfile>
     <S.HeaderSvg>
       <use xlinkHref="img/icon/sprite.svg#icon-tect-logo"></use>
     </S.HeaderSvg>
     <S.HeaderSelect name="select">
-      <S.HeaderSelectOption value={"value1"}>Сергей</S.HeaderSelectOption>
+      <S.HeaderSelectOption value={"value1"}>{email}</S.HeaderSelectOption>
       <S.HeaderSelectOption value={"value2"}>Алексей</S.HeaderSelectOption>
       <S.HeaderSelectOption value={"value3"}>Айрат</S.HeaderSelectOption>
     </S.HeaderSelect>

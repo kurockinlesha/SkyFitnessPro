@@ -18,7 +18,7 @@ export const Container = styled.div`
 
 export const LogInForm = styled.form`
 	width: 366px;
-	height: 439px;
+	min-height: 439px;
 	border-radius: 12px;
 	background: rgba(255, 255, 255, 1);
 	display: flex;

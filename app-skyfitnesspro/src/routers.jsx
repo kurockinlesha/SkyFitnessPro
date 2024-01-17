@@ -2,18 +2,17 @@ import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main/MainPage";
 import { Profile } from "./components/Profile/Profile";
 import { Course } from "./components/course/Course";
-// import { Password } from "./components/Password/Password";
 import { WorkOutComponent } from "./components/work-out-component/work-out-component";
 import { Auth } from "./pages/auth/Auth";
 import { Reg } from "./pages/reg/Reg";
-// import { Login } from "./components/Login/Login";
 import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 import React, { useEffect, useState } from "react";
 import { app } from "./components/firebase/firebase";
-// import { ChoiceWorkout } from "./components/choice-workout/ChoiceWorkout";
+
 
 export function AppRoutes() {
+ 
   //workouts: наименование курса, видео, упражнения
   const [workoutsFirebase, setWorkoutsFirebase] = useState([]);
   //courses: напрввления, описания, наименование на рус и англ, workouts
@@ -48,10 +47,9 @@ export function AppRoutes() {
     fetchCoursesData();
   }, []);
 
-  console.log(workoutsFirebase);
-  console.log(coursesFirebase);
-
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <Routes>
@@ -59,41 +57,60 @@ export function AppRoutes() {
         path="/"
         element={<MainPage coursesFirebase={coursesFirebase} />}
       />
-      <Route path="/auth" element={<Auth />} />
-      <Route path="/reg" element={<Reg />} />
       <Route
-        path="/profile"
+        path="/auth"
         element={
-          <Profile
-            coursesFirebase={coursesFirebase}
-            workoutsFirebase={workoutsFirebase}
-            selectedWorkoutId={selectedWorkoutId}
-            setSelectedWorkoutId={setSelectedWorkoutId}
+          <Auth
+            email={email}
+            password={password}
+            setEmail={setEmail}
+            setPassword={setPassword}
+            // handleChange={handleChange}
+            // handleLogin={handleLogin}
           />
         }
       />
-      {/* <Route path="/ChoiceWorkout/:courseId" element={<ChoiceWorkout coursesFirebase={coursesFirebase} workoutsFirebase={workoutsFirebase} />} /> */}
-
+      <Route
+        path="/reg"
+        element={
+          <Reg
+            email={email}
+            password={password}
+            setEmail={setEmail}
+            setPassword={setPassword}
+            // handleChange={handleChange}
+            // handleReg={handleReg}
+          />
+        }
+      />
       <Route
         path="/course/:courseId"
         element={<Course coursesFirebase={coursesFirebase} />}
       />
 
-      {/* <Route path="/Password" element={<Password />} />
-      <Route path="/Login" element={<Login />} /> */}
-
-      <Route
-        path="/workoutVideoPage"
-        element={
-          <WorkOutComponent
-            workoutsFirebase={workoutsFirebase}
-            selectedWorkoutId={selectedWorkoutId}
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                coursesFirebase={coursesFirebase}
+                workoutsFirebase={workoutsFirebase}
+                selectedWorkoutId={selectedWorkoutId}
+                setSelectedWorkoutId={setSelectedWorkoutId}
+                password={password}
+              />
+            }
           />
-        }
-      />
-      {/* <Course /> */}
-      {/* <Password /> */}
-      {/* <ChoiceWorkout/> */}
+
+          <Route
+            path="/workoutVideoPage"
+            element={
+              <WorkOutComponent
+                workoutsFirebase={workoutsFirebase}
+                selectedWorkoutId={selectedWorkoutId}
+              />
+            }
+          />
+  
     </Routes>
   );
 }
