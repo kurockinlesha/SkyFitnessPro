@@ -5,15 +5,14 @@ import { NavLink, useParams } from "react-router-dom";
 
 export function Course({ coursesFirebase }) {
   const { courseId } = useParams();
-  console.log(courseId);
+
   const selectedCourse = coursesFirebase.find(
     (course) => course._id === courseId
   );
-  console.log(selectedCourse);
+
   const selectedCourseBlockOne = selectedCourse.directions.slice(0, 3);
   const selectedCourseBlockTwo = selectedCourse.directions.slice(3);
-  console.log(selectedCourseBlockOne);
-  console.log(selectedCourseBlockTwo);
+
   return (
     <>
       <NavLink to="/">

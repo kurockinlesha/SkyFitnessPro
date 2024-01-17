@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as S from "./workout-video-page.styled";
 import * as Style from "../Profile/ProfileStyle";
 import { PersonalData } from "../Profile/Profile";
+import { useAuth } from "../hooks/use-auth";
 
 export const WorkoutVideoPage = ({
   progressValues,
@@ -9,15 +10,14 @@ export const WorkoutVideoPage = ({
   workoutsFirebase,
   workout,
 }) => {
-
-
-
+  const { isAuth, email } = useAuth();
+  const navigate = useNavigate();
   const workoutName = workout?.name ? workout?.name.split("/") : "";
   const workoutCourseName = workoutName[0];
   workoutName && workoutName.shift();
   const workoutCourseText = workoutName && workoutName.join("/");
 
-  return (
+  return isAuth ? (
     <>
       <Style.Header>
         <Style.HeaderLogo>
@@ -25,7 +25,7 @@ export const WorkoutVideoPage = ({
             <Style.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
           </NavLink>
         </Style.HeaderLogo>
-       <PersonalData />
+        <PersonalData email={email} />
       </Style.Header>
       <S.SelectedCourseTitle>{workoutCourseName}</S.SelectedCourseTitle>
       <S.SelectedTrainingTitle>{workoutCourseText}</S.SelectedTrainingTitle>
@@ -103,11 +103,7 @@ export const WorkoutVideoPage = ({
         </S.TrainingProgress>
       </S.Exercises>
     </>
+  ) : (
+    navigate("/")
   );
 };
-
-// <select className="heder-select" name="select">
-//             <option value={"value1"}>Сергей</option>
-//             <option value={"value2"}>Алексей</option>
-//             <option value={"value3"}>Айрат</option>
-//           </select>
