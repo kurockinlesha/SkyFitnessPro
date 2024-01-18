@@ -161,3 +161,15 @@ export const MdalBtnSignupEntLink = styled.a`
   -ms-flex-pack: center;
   justify-content: center;
 `;
+
+export const LoginTitle = styled.h2`
+  color: #000;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: StratosSkyeng;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  margin-top: 40px;
+`;

@@ -39,20 +39,21 @@ const Profile = ({
     selectedIds.includes(course._id)
   );
 
-  const updateUserPassword = async(e) => {
-    e.preventDefault()
+  const updateUserPassword = async (e) => {
+    e.preventDefault();
     const auth = getAuth();
     const user = auth.currentUser;
 
-   await updatePassword(user, newPassword)
+    await updatePassword(user, newPassword)
       .then((response) => {
         // Update successful.
         console.log(response);
         setModalActivePassword(false);
-        logOut();
+        // logOut();
+        navigate("/auth");
       })
       .catch((error) => {
-       console.log(error);
+        console.log(error);
       });
   };
 

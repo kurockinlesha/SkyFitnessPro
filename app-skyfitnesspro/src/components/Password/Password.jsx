@@ -22,13 +22,13 @@ const Password = ({
             <S.ModalInput
               type="password"
               name="password"
-              placeholder="Пароль"
+              placeholder="Старый пароль"
             />
             <S.ModalInput
               type="password"
               name="password"
               value={newPassword}
-              placeholder="Повторите пароль"
+              placeholder="Введите новый пароль"
               onChange={(e) => setNewPassword(e.target.value)}
             />
             <S.MdalBtnSignupEnt>
