@@ -9,7 +9,6 @@ export const MyProgress = ({
   workout,
 }) => {
   
-  console.log(progressValues);
   return isMyProgressOpen ? (
     <S.MyProgressDataContainer>
       <S.MyProgressData isErrorExist={isErrorExist}>

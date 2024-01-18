@@ -3,7 +3,13 @@ import { WorkoutVideoPage } from "../workout-video-page/workout-video-page";
 import { MyProgress } from "../progress/progress";
 import { CountedProgress } from "../progress/progress-counted";
 
-export const WorkOutComponent = ({ workoutsFirebase, selectedWorkoutId }) => {
+export const WorkOutComponent = ({
+  workoutsFirebase,
+  selectedWorkoutId,
+  selectedCourseId,
+  coursesFirebase,
+  logOut,
+}) => {
   const [isMyProgressOpen, setIsMyProgressOpen] = useState(false);
   const [isMyProgressCounted, setIsMyProgressCounted] = useState(false);
   const [isErrorExist, setIsErrorExist] = useState(false);
@@ -13,20 +19,19 @@ export const WorkOutComponent = ({ workoutsFirebase, selectedWorkoutId }) => {
     return <p>Loading...</p>;
   }
 
-  const workout =
-  workoutsFirebase ?
-  workoutsFirebase.find((workout) => workout._id === selectedWorkoutId) : "";
-
-console.log(workout);
+  const workout = workoutsFirebase
+    ? workoutsFirebase.find((workout) => workout._id === selectedWorkoutId)
+    : ""
+  const course = coursesFirebase && coursesFirebase.find(course => course._id === selectedCourseId);
+  console.log(course.nameRU);
 
   const openModalWindow = () => {
     setIsMyProgressOpen(true);
   };
 
   const closeModalWindow = () => {
-    console.log(progressValues.length);
-    console.log(workout.exercises.length);
-    if (progressValues.some(value => value === '')) {
+  
+    if (progressValues.some((value) => value === "")) {
       setIsMyProgressOpen(true);
       setIsErrorExist(true);
     } else {
@@ -46,6 +51,8 @@ console.log(workout);
         openModalWindow={openModalWindow}
         workoutsFirebase={workoutsFirebase}
         workout={workout}
+        course={course}
+        logOut={logOut}
       />
       <MyProgress
         progressValues={progressValues}
@@ -55,7 +62,9 @@ console.log(workout);
         isErrorExist={isErrorExist}
         workout={workout}
       />
-      <CountedProgress isMyProgressCounted={isMyProgressCounted} />
+      {isMyProgressCounted ? (
+        <CountedProgress title="Ваш прогресс засчитан!" />
+      ) : null}
     </>
   );
 };

@@ -2,23 +2,14 @@ import React from "react";
 import * as S from "./headerStyled";
 import sticker from "../../img/sticker.svg";
 import logo from "../../img/logo.svg";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../hooks/use-auth";
-import { useDispatch } from "react-redux";
-import { removeUser } from "../store/slices/userSlice";
+import { PersonalData } from "../Profile/Profile";
 
-export function Header() {
+
+export function Header({logOut}) {
   const { isAuth, email } = useAuth();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const logOut = () => {
-    navigate("/auth");
-    dispatch(removeUser());
-  };
 
-  // function Logout() {
-  //   <use xlinkHref="#" id="click_Logout"></use>;
-  // }
   return (
     <S.Head>
       <S.Header>
@@ -34,14 +25,15 @@ export function Header() {
       </S.Sticker> */}
         <S.TopButton>
           {isAuth ? (
-            <>
-              <S.MainLoginButton onClick={() => logOut()}>
-                Выйти из {email}
-              </S.MainLoginButton>
-              <NavLink to="/profile">
-                <S.MainLoginButton>Перейти в профиль {email}</S.MainLoginButton>
-              </NavLink>
-            </>
+            // <>
+            //   <S.MainLoginButton onClick={() => logOut()}>
+            //     Выйти из {email}
+            //   </S.MainLoginButton>
+            //   <NavLink to="/profile">
+            //     <S.MainLoginButton>Перейти в профиль {email}</S.MainLoginButton>
+            //   </NavLink>
+            // </>
+            <PersonalData email={email} logOut={logOut} />
           ) : (
             <NavLink to="/auth">
               <S.MainLoginButton>Войти</S.MainLoginButton>

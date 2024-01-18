@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { MainPage } from "./pages/main/MainPage";
 import { Profile } from "./components/Profile/Profile";
 import { Course } from "./components/course/Course";
@@ -9,6 +9,8 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 import React, { useEffect, useState } from "react";
 import { app } from "./components/firebase/firebase";
+import { useDispatch } from "react-redux";
+import { removeUser } from "./components/store/slices/userSlice";
 
 
 export function AppRoutes() {
@@ -46,16 +48,26 @@ export function AppRoutes() {
     };
     fetchCoursesData();
   }, []);
+  console.log(coursesFirebase);
 
+  const [selectedCourseId, setSelectedCourseId] = useState(null);
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const logOut = () => {
+    navigate("/auth");
+    dispatch(removeUser());
+  };
+
 
   return (
     <Routes>
       <Route
         path="/"
-        element={<MainPage coursesFirebase={coursesFirebase} />}
+        element={<MainPage coursesFirebase={coursesFirebase} logOut={logOut} />}
       />
       <Route
         path="/auth"
@@ -65,8 +77,6 @@ export function AppRoutes() {
             password={password}
             setEmail={setEmail}
             setPassword={setPassword}
-            // handleChange={handleChange}
-            // handleLogin={handleLogin}
           />
         }
       />
@@ -78,8 +88,6 @@ export function AppRoutes() {
             password={password}
             setEmail={setEmail}
             setPassword={setPassword}
-            // handleChange={handleChange}
-            // handleReg={handleReg}
           />
         }
       />
@@ -97,6 +105,9 @@ export function AppRoutes() {
                 selectedWorkoutId={selectedWorkoutId}
                 setSelectedWorkoutId={setSelectedWorkoutId}
                 password={password}
+                selectedCourseId={selectedCourseId} 
+                setSelectedCourseId={setSelectedCourseId}
+                logOut={logOut}
               />
             }
           />
@@ -107,6 +118,9 @@ export function AppRoutes() {
               <WorkOutComponent
                 workoutsFirebase={workoutsFirebase}
                 selectedWorkoutId={selectedWorkoutId}
+                selectedCourseId={selectedCourseId} 
+                coursesFirebase={coursesFirebase}
+                logOut={logOut}
               />
             }
           />

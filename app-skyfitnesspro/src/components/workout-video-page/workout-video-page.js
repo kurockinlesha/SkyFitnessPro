@@ -9,13 +9,15 @@ export const WorkoutVideoPage = ({
   openModalWindow,
   workoutsFirebase,
   workout,
+  course,
+  logOut
 }) => {
   const { isAuth, email } = useAuth();
   const navigate = useNavigate();
-  const workoutName = workout?.name ? workout?.name.split("/") : "";
-  const workoutCourseName = workoutName[0];
-  workoutName && workoutName.shift();
-  const workoutCourseText = workoutName && workoutName.join("/");
+  // const workoutName = workout?.name ? workout?.name.split("/") : "";
+  // const workoutCourseName = workoutName[0];
+  // workoutName && workoutName.shift();
+  // const workoutCourseText = workoutName && workoutName.join("/");
 
   return isAuth ? (
     <>
@@ -25,10 +27,10 @@ export const WorkoutVideoPage = ({
             <Style.Img src="/img/logo-SkyFitnessPro.svg" alt="logo" />
           </NavLink>
         </Style.HeaderLogo>
-        <PersonalData email={email} />
+        <PersonalData email={email} logOut={logOut} />
       </Style.Header>
-      <S.SelectedCourseTitle>{workoutCourseName}</S.SelectedCourseTitle>
-      <S.SelectedTrainingTitle>{workoutCourseText}</S.SelectedTrainingTitle>
+      <S.SelectedCourseTitle>{course.nameRU}</S.SelectedCourseTitle>
+      <S.SelectedTrainingTitle>{workout.name}</S.SelectedTrainingTitle>
       <S.Video>
         {workoutsFirebase.length > 0 ? (
           <iframe
@@ -80,6 +82,8 @@ export const WorkoutVideoPage = ({
 
                 if (valueInPercentage > 100) {
                   valueInPercentage = 100;
+                } else if(valueInPercentage < 0) {
+                  valueInPercentage = 0;
                 }
                 return (
                   <S.TrainingProgressInPercentage>
