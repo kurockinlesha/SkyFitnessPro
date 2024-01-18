@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./course.styled";
 import * as Styled from "../workout-video-page/workout-video-page.styled";
 import { NavLink, useParams } from "react-router-dom";
+import { CountedProgress } from "../progress/progress-counted";
 
 export function Course({ coursesFirebase }) {
   const { courseId } = useParams();
@@ -12,6 +13,15 @@ export function Course({ coursesFirebase }) {
 
   const selectedCourseBlockOne = selectedCourse.directions.slice(0, 3);
   const selectedCourseBlockTwo = selectedCourse.directions.slice(3);
+  const [stub, setStub] = useState(false);
+
+  const showStub = () => {
+    setStub(true);
+    setTimeout(() => {
+      setStub(false);
+    }, 2000);
+  };
+  console.log("stub", stub);
 
   return (
     <>
@@ -28,7 +38,7 @@ export function Course({ coursesFirebase }) {
         {selectedCourse.fitting.map((fitt, index) => {
           return (
             <>
-              <S.Reasons>
+              <S.Reasons key={index}>
                 <S.Point>
                   <S.PointText>{index + 1}</S.PointText>
                 </S.Point>
@@ -70,12 +80,15 @@ export function Course({ coursesFirebase }) {
           и радость!
         </S.ApplicationText>
         <S.TrainingButton>
-          <S.TrainingText>Записаться на тренировку</S.TrainingText>
+          <S.TrainingText onClick={() => showStub()}>
+            Записаться на тренировку
+          </S.TrainingText>
         </S.TrainingButton>
         <S.ApplicationImg>
           <img src="/img//phone.svg" alt="phone" />
         </S.ApplicationImg>
       </S.Application>
+      {stub ? <CountedProgress title="Вы записаны на тренировку!" /> : null}
     </>
   );
 }

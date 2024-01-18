@@ -12,8 +12,6 @@ const ChoiceWorkout = ({
   selectedWorkoutId,
   setSelectedWorkoutId,
 }) => {
-  // const { courseId } = useParams();
-  // console.log("selectedCourse.id", selectedCourseId);
 
   const navigate = useNavigate();
 
@@ -51,8 +49,7 @@ const ChoiceWorkout = ({
                   const workoutCourseName = workoutName[0];
                   workoutName.shift();
                   const workoutCourseText = workoutName.join("/");
-                  // console.log(workoutText);
-                  // console.log(workoutName);
+                
                   return (
                     <S.ChoiceWorkoutItem
                       key={workout._id}

@@ -6,27 +6,20 @@ export const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 };
 
-export function MainPage({coursesFirebase}) {
+export function MainPage({ coursesFirebase, logOut }) {
   return (
-  
-          <S.Main>
-            <Header />
-
-            <Courses 
-            coursesFirebase={coursesFirebase}/>
-          
-            <S.ButtonScroll>
-              <S.ButtonScrollMain
-                //   onClick={scroll}
-                onClick={scrollToTop}
-                title="Наверх"
-                id="ButtonScrollMain"
-              >
-                Наверх ↑
-              </S.ButtonScrollMain>
-            </S.ButtonScroll>
-          </S.Main>
-   
- 
+    <S.Main>
+      <Header logOut={logOut} />
+      <Courses coursesFirebase={coursesFirebase} />
+      <S.ButtonScroll>
+        <S.ButtonScrollMain
+          onClick={scrollToTop}
+          title="Наверх"
+          id="ButtonScrollMain"
+        >
+          Наверх ↑
+        </S.ButtonScrollMain>
+      </S.ButtonScroll>
+    </S.Main>
   );
 }

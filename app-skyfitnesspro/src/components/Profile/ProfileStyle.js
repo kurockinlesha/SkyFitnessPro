@@ -19,7 +19,7 @@ export const HeaderSvg = styled.svg`
 `;
 export const HeaderSelect = styled.select`
   font: inherit;
-  
+
   word-spacing: inherit;
   background-color: #fafafa;
   color: #000;
@@ -31,7 +31,8 @@ export const HeaderSelect = styled.select`
   line-height: 32px; /* 133.333% */
   letter-spacing: -0.1px;
   border: none;
- 
+  border-radius: 7px;
+
   &:focus {
     border: none;
     box-shadow: none;
@@ -48,7 +49,7 @@ export const Heading = styled.div``;
 export const ProfileHeading = styled.h1`
   color: #000;
   font-variant-numeric: lining-nums proportional-nums;
- 
+
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
@@ -113,14 +114,14 @@ export const CourseItem = styled.div`
       : props.courseid === "kfpq8e"
       ? "url('./img/icon-class-Stretching.png')"
       : "url('./img/icon-class-Bodyflex.png')"};
-  width: ${(props) => props.courseid === "q02a6i" ? "330px" : ""};
-  height: ${(props) => props.courseid === "q02a6i" ? "435px" : ""};
-  margin-top: ${(props) => props.courseid === "q02a6i" ? "24px" : ""};
+  width: ${(props) => (props.courseid === "q02a6i" ? "330px" : "")};
+  height: ${(props) => (props.courseid === "q02a6i" ? "435px" : "")};
+  margin-top: ${(props) => (props.courseid === "q02a6i" ? "24px" : "")};
   box-shadow: ${(props) =>
     props.courseid === "q02a6i"
       ? "-10px 10px 15.999px 0px rgba(0, 0, 0, 0.1), 10px -10px 16px 0px rgba(0, 0, 0, 0.1)"
       : ""};
-  border-radius: ${(props) => props.courseid === "q02a6i" ? "29.998px" : ""};
+  border-radius: ${(props) => (props.courseid === "q02a6i" ? "29.998px" : "")};
 `;
 
 export const ButtonLink = styled.button`
@@ -140,10 +141,9 @@ export const ButtonLink = styled.button`
   line-height: 115%;
   letter-spacing: -0.05px;
   border: none;
-  bottom: ${(props) => props.courseid === "q02a6i" ? "22px" : "47px"};
+  bottom: ${(props) => (props.courseid === "q02a6i" ? "22px" : "47px")};
 
   &:hover {
     background: #daf289;
   }
 `;
-

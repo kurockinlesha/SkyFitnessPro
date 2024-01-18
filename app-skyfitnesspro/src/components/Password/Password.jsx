@@ -1,10 +1,14 @@
 import React from "react";
 
 import * as S from "./LoginPasswordStyle";
-const Password = ({ modalActivePassword, setModalActivePassword }) => {
+const Password = ({
+  modalActivePassword,
+  setModalActivePassword,
+  setNewPassword,
+  newPassword,
+  updateUserPassword
+}) => {
   return (
-    // <S.Wrapper>
-    //   <S.ContainerSignup>
     <>
       {modalActivePassword && (
         <S.ModalBlock onClick={() => setModalActivePassword(false)}>
@@ -23,17 +27,17 @@ const Password = ({ modalActivePassword, setModalActivePassword }) => {
             <S.ModalInput
               type="password"
               name="password"
+              value={newPassword}
               placeholder="Повторите пароль"
+              onChange={(e) => setNewPassword(e.target.value)}
             />
             <S.MdalBtnSignupEnt>
-              <S.MdalBtnSignupEntLink>Сохранить</S.MdalBtnSignupEntLink>
+              <S.MdalBtnSignupEntLink onClick={() => updateUserPassword()}>Сохранить</S.MdalBtnSignupEntLink>
             </S.MdalBtnSignupEnt>
           </S.ModalFormLogin>
         </S.ModalBlock>
       )}
     </>
-    //   </S.ContainerSignup>
-    // </S.Wrapper>
   );
 };
 
