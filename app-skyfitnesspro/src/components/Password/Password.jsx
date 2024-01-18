@@ -6,7 +6,7 @@ const Password = ({
   setModalActivePassword,
   setNewPassword,
   newPassword,
-  updateUserPassword
+  updateUserPassword,
 }) => {
   return (
     <>
@@ -32,7 +32,9 @@ const Password = ({
               onChange={(e) => setNewPassword(e.target.value)}
             />
             <S.MdalBtnSignupEnt>
-              <S.MdalBtnSignupEntLink onClick={() => updateUserPassword()}>Сохранить</S.MdalBtnSignupEntLink>
+              <S.MdalBtnSignupEntLink onClick={(e) => updateUserPassword(e)}>
+                Сохранить
+              </S.MdalBtnSignupEntLink>
             </S.MdalBtnSignupEnt>
           </S.ModalFormLogin>
         </S.ModalBlock>

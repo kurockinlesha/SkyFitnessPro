@@ -19,20 +19,6 @@ const Profile = ({
   logOut,
 }) => {
   const [newPassword, setNewPassword] = useState("");
-  const updateUserPassword = () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    updatePassword(user, newPassword)
-      .then((response) => {
-        // Update successful.
-        console.log(response);
-      })
-      .catch((error) => {
-       console.log(error);
-      });
-  };
- 
 
   const { isAuth, email } = useAuth();
   const navigate = useNavigate();
@@ -52,6 +38,23 @@ const Profile = ({
   const filteredCourses = coursesFirebase.filter((course) =>
     selectedIds.includes(course._id)
   );
+
+  const updateUserPassword = async(e) => {
+    e.preventDefault()
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+   await updatePassword(user, newPassword)
+      .then((response) => {
+        // Update successful.
+        console.log(response);
+        setModalActivePassword(false);
+        logOut();
+      })
+      .catch((error) => {
+       console.log(error);
+      });
+  };
 
   return isAuth ? (
     <S.ContainerProfile>
