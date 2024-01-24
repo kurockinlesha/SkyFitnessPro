@@ -10,14 +10,10 @@ export const WorkoutVideoPage = ({
   workoutsFirebase,
   workout,
   course,
-  logOut
+  logOut,
 }) => {
   const { isAuth, email } = useAuth();
   const navigate = useNavigate();
-  // const workoutName = workout?.name ? workout?.name.split("/") : "";
-  // const workoutCourseName = workoutName[0];
-  // workoutName && workoutName.shift();
-  // const workoutCourseText = workoutName && workoutName.join("/");
 
   return isAuth ? (
     <>
@@ -35,7 +31,7 @@ export const WorkoutVideoPage = ({
         {workoutsFirebase.length > 0 ? (
           <iframe
             title="trainingVideo"
-            frameborder="0"
+            frameBorder="0"
             width="100%"
             height="639px"
             src={workout && workout.video}
@@ -49,8 +45,10 @@ export const WorkoutVideoPage = ({
           <S.SelectedTrainingTitle>Упражнения</S.SelectedTrainingTitle>
           <S.SelectedTrainingList>
             {workout &&
-              workout.exercises.map((exercise) => (
-                <S.SelectedTrainingListElement>
+              workout.exercises.map((exercise, index) => (
+                <S.SelectedTrainingListElement
+                  key={"exercises name" + index}
+                >
                   {exercise.name}
                 </S.SelectedTrainingListElement>
               ))}
@@ -82,11 +80,13 @@ export const WorkoutVideoPage = ({
 
                 if (valueInPercentage > 100) {
                   valueInPercentage = 100;
-                } else if(valueInPercentage < 0) {
+                } else if (valueInPercentage < 0) {
                   valueInPercentage = 0;
                 }
                 return (
-                  <S.TrainingProgressInPercentage>
+                  <S.TrainingProgressInPercentage
+                    key={"progress-" + index}
+                  >
                     <S.TrainingProgressElement>
                       {exerciseText[0]}
                     </S.TrainingProgressElement>

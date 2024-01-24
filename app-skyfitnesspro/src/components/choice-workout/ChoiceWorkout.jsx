@@ -33,7 +33,7 @@ const ChoiceWorkout = ({
     setTimeout(() => {
       navigate("/workoutVideoPage");
     }, 2 * 1000);
-    console.log(selectedWorkoutId);
+    // console.log(selectedWorkoutId);
   };
 
   return (

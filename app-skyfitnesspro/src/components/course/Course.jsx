@@ -21,7 +21,7 @@ export function Course({ coursesFirebase }) {
       setStub(false);
     }, 2000);
   };
-  console.log("stub", stub);
+  // console.log("stub", stub);
 
   return (
     <>
@@ -37,14 +37,12 @@ export function Course({ coursesFirebase }) {
       <S.ReasonsCourses>
         {selectedCourse.fitting.map((fitt, index) => {
           return (
-            <>
-              <S.Reasons key={index}>
-                <S.Point>
-                  <S.PointText>{index + 1}</S.PointText>
-                </S.Point>
-                <S.Type>{fitt}</S.Type>
-              </S.Reasons>
-            </>
+            <S.Reasons key={"fitt" + index}>
+              <S.Point>
+                <S.PointText>{index + 1}</S.PointText>
+              </S.Point>
+              <S.Type>{fitt}</S.Type>
+            </S.Reasons>
           );
         })}
       </S.ReasonsCourses>
@@ -53,9 +51,7 @@ export function Course({ coursesFirebase }) {
         <S.TypesList>
           {selectedCourseBlockOne.map((dir, index) => {
             return (
-              <>
-                <S.TypeElement key={index}>{dir}</S.TypeElement>
-              </>
+              <S.TypeElement key={"direction1" + index}>{dir}</S.TypeElement>
             );
           })}
         </S.TypesList>
@@ -63,9 +59,7 @@ export function Course({ coursesFirebase }) {
           {selectedCourseBlockTwo &&
             selectedCourseBlockTwo.map((dir, index) => {
               return (
-                <>
-                  <S.TypeElement key={index}>{dir}</S.TypeElement>
-                </>
+                <S.TypeElement key={"direction2" + index}>{dir}</S.TypeElement>
               );
             })}
         </S.TypesList>

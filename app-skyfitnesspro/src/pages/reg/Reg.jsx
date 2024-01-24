@@ -12,18 +12,24 @@ export const Reg = ({ email, password, setEmail, setPassword }) => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
+  
+
   const handleReg = async (e) => {
     e.preventDefault();
+
+    if (repeatPassword === "" || email === "" || password === "") {
+      setErrorMessage("Все поля должны быть заполнены");
+      return;
+    } 
+     if (password !== repeatPassword) {
+      setErrorMessage("Пароли не совпадают");
+      return;
+    }
+
     const auth = getAuth();
-	
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-		if (repeatPassword === "" || email === "" || password === "") {
-		throw new Error("Все поля должны быть заполнены");
-	  } else if (password !== repeatPassword) {
-		throw new Error("Пароли не совпадают");
-	  }
         console.log(user);
         dispatch(
           setUser({

@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import * as S from "./ProfileStyle";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Login } from "../Login/Login";
@@ -30,7 +29,6 @@ const Profile = ({
   const handleSelectCourse = (course) => {
     setSelectedCourseId(course._id);
     setModalActiveTrainings(true);
-    console.log(selectedCourseId);
   };
 
   const selectedIds = ["ab1c3f", "kfpq8e", "q02a6i"];
@@ -46,10 +44,8 @@ const Profile = ({
 
     await updatePassword(user, newPassword)
       .then((response) => {
-        // Update successful.
         console.log(response);
         setModalActivePassword(false);
-        // logOut();
         navigate("/auth");
       })
       .catch((error) => {
@@ -97,28 +93,24 @@ const Profile = ({
         <S.ProfileHeading>Мои курсы</S.ProfileHeading>
         <S.CourseBox>
           {filteredCourses.map((course) => (
-            <>
-              <S.CourseItem key={course._id} courseid={course._id}>
-                {/* <NavLink to={`/ChoiceWorkout/${course._id}`}> */}
-                <S.ButtonLink
-                  courseid={course._id}
-                  onClick={() => handleSelectCourse(course)}
-                >
-                  Перейти
-                </S.ButtonLink>
-                {/* </NavLink> */}
-              </S.CourseItem>
-              <ChoiceWorkout
-                modalActiveTrainings={modalActiveTrainings}
-                setModalActiveTrainings={setModalActiveTrainings}
-                workoutsFirebase={workoutsFirebase}
-                coursesFirebase={coursesFirebase}
-                selectedCourseId={selectedCourseId}
-                selectedWorkoutId={selectedWorkoutId}
-                setSelectedWorkoutId={setSelectedWorkoutId}
-              />
-            </>
+            <S.CourseItem key={course._id} courseid={course._id}>
+              <S.ButtonLink
+                courseid={course._id}
+                onClick={() => handleSelectCourse(course)}
+              >
+                Перейти
+              </S.ButtonLink>
+            </S.CourseItem>
           ))}
+          <ChoiceWorkout
+            modalActiveTrainings={modalActiveTrainings}
+            setModalActiveTrainings={setModalActiveTrainings}
+            workoutsFirebase={workoutsFirebase}
+            coursesFirebase={coursesFirebase}
+            selectedCourseId={selectedCourseId}
+            selectedWorkoutId={selectedWorkoutId}
+            setSelectedWorkoutId={setSelectedWorkoutId}
+          />
         </S.CourseBox>
       </S.Course>
     </S.ContainerProfile>

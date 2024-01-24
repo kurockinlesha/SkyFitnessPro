@@ -11,12 +11,20 @@ export const Auth = ({ email, password, setEmail, setPassword }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    if (email === "" || password === "") {
+      setErrorMessage("Все поля должны быть заполнены");
+      return;
+    }
+
     const auth = getAuth();
     await signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
+
         dispatch(
           setUser({
             email: user.email,
@@ -24,6 +32,7 @@ export const Auth = ({ email, password, setEmail, setPassword }) => {
             token: user.accessToken,
           })
         );
+
         navigate("/profile");
       })
       .catch((error) => {
