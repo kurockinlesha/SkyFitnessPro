@@ -13,30 +13,37 @@ export const WorkOutComponent = ({
   const [isMyProgressOpen, setIsMyProgressOpen] = useState(false);
   const [isMyProgressCounted, setIsMyProgressCounted] = useState(false);
   const [isErrorExist, setIsErrorExist] = useState(false);
-  const [progressValues, setProgressValues] = useState([]);
-
-  if (workoutsFirebase.length === 0) {
-    return <p>Loading...</p>;
-  }
 
   const workout = workoutsFirebase
     ? workoutsFirebase.find((workout) => workout._id === selectedWorkoutId)
-    : ""
-  const course = coursesFirebase && coursesFirebase.find(course => course._id === selectedCourseId);
-  console.log(course.nameRU);
+    : "";
+
+  const workoutLength = workout.exercises.length;
+
+  const [progressValues, setProgressValues] = useState(
+    new Array(workoutLength).fill("")
+  );
+
+  const course =
+    coursesFirebase &&
+    coursesFirebase.find((course) => course._id === selectedCourseId);
+
+    if (workoutsFirebase.length === 0) {
+    return <p>Loading...</p>;
+  }
 
   const openModalWindow = () => {
     setIsMyProgressOpen(true);
   };
 
   const closeModalWindow = () => {
-  
     if (progressValues.some((value) => value === "")) {
       setIsMyProgressOpen(true);
       setIsErrorExist(true);
     } else {
       setIsMyProgressOpen(false);
       setIsMyProgressCounted(true);
+      setIsErrorExist(false);
 
       setTimeout(() => {
         setIsMyProgressCounted(false);

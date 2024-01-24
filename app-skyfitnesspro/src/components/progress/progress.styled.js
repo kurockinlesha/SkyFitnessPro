@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
 export const MyProgressDataContainer = styled.div`
-opacity: 2;
-top: 0;
-left: 0;
-background-color: rgba(0, 0, 0, 0.4);
-height: 100vh;
-width: 100vw;
-position: fixed;
-display: flex;
-justify-content: center;
-align-items: center;
-`
+  opacity: 2;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const MyProgressData = styled.div`
   width: 444px;
-  min-height: ${(props) => (props.isErrorExist ? "600px" : "554px")};
+  min-height: 554px;
   border-radius: 12px;
   background: #fff;
   display: flex;
@@ -61,7 +61,6 @@ export const MyProgressInput = styled.input`
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #d0cece;
-  
 
   &::placeholder {
     color: #d0cece;
@@ -98,7 +97,7 @@ export const MyProgressButton = styled.button`
 
 export const CountedProgressBox = styled.div`
   position: fixed;
- 
+
   width: 444px;
   height: 360px;
   border-radius: 12px;

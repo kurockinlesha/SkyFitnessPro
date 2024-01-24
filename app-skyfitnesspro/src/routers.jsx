@@ -17,7 +17,7 @@ export function AppRoutes() {
  
   //workouts: наименование курса, видео, упражнения
   const [workoutsFirebase, setWorkoutsFirebase] = useState([]);
-  //courses: напрввления, описания, наименование на рус и англ, workouts
+  //courses: направления, описания, наименование на рус и англ, workouts
   const [coursesFirebase, setCoursesFirebase] = useState([]);
 
   useEffect(() => {
@@ -48,7 +48,8 @@ export function AppRoutes() {
     };
     fetchCoursesData();
   }, []);
-  console.log(coursesFirebase);
+  // console.log(coursesFirebase);
+  // console.log(workoutsFirebase);
 
   const [selectedCourseId, setSelectedCourseId] = useState(null);
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);

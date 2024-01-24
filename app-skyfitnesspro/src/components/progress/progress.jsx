@@ -8,10 +8,11 @@ export const MyProgress = ({
   isErrorExist,
   workout,
 }) => {
+  // console.log("isErrorExist", isErrorExist);
   
   return isMyProgressOpen ? (
     <S.MyProgressDataContainer>
-      <S.MyProgressData isErrorExist={isErrorExist}>
+      <S.MyProgressData>
         <S.MyProgressTitle>Мой прогресс</S.MyProgressTitle>
         {workout.exercises.map((exercise, index) => {
           const exerciseText = exercise.name.split("(");
